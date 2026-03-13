@@ -1,6 +1,6 @@
 # PaperClaw
 
-##CA: 8Sr83QJW12HMnxvg7HzHZvdFfj6G8j7AwzKmyBfRpump
+CA: 8Sr83QJW12HMnxvg7HzHZvdFfj6G8j7AwzKmyBfRpump
 
 **A production-ready OpenClaw skill library for academic research teams**
 
