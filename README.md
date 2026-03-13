@@ -1,5 +1,7 @@
 # PaperClaw
 
+<img width="1536" height="1024" alt="Image" src="https://github.com/user-attachments/assets/18f459a3-d20e-4f8e-9dba-666844ac48e0" />
+
 **A production-ready OpenClaw skill library for academic research teams**
 
 [![Skills](https://img.shields.io/badge/skills-27-blue?style=flat-square)]()
