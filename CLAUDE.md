@@ -68,3 +68,23 @@ PaperClaw is used for conducting comprehensive literature reviews using Semantic
 - HTML Report: `literature_review_*.html`
 - Markdown Report: `literature_review_*.md`
 - API credentials: `.env` (not committed)
+- Design system: `DESIGN.MD` (Apple-inspired styling)
+
+## Design System (DESIGN.MD)
+For HTML report visualization, follow the Apple-inspired design system in `DESIGN.MD`:
+
+### Key Design Principles
+- **Typography**: SF Pro Display (20px+) for headings, SF Pro Text (<20px) for body
+- **Colors**: Binary light/dark section rhythm (#000000 ↔ #f5f5f7), Apple Blue (#0071e3) only for interactive elements
+- **Line heights**: Tight for headlines (1.07-1.14), comfortable for body (1.47)
+- **Letter spacing**: Negative tracking at all sizes (-0.28px at 56px, -0.374px at 17px)
+- **CTAs**: Pill-shaped buttons (980px radius) for primary actions
+- **Shadows**: Soft, diffused (`rgba(0,0,0,0.22) 3px 5px 30px`) or none
+- **Sections**: Alternating dark/light backgrounds for cinematic pacing
+- **Max width**: 980px container for content
+
+### Section Layout
+- Hero: Black background, centered title, meta pills, key finding card
+- Content sections: Alternate between white (#fff), light gray (#f5f5f7), and black (#000)
+- Tables: Rounded corners (12px), dark header (#1d1d1f), subtle shadows
+- Cards: White background, 12px radius, soft shadow

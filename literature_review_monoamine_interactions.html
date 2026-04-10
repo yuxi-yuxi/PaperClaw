@@ -6,620 +6,1088 @@
     <title>Literature Review: Monoamine Interactions in Animal Behavior</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --secondary: #7c3aed;
-            --accent: #059669;
-            --bg: #f8fafc;
-            --text: #1e293b;
-            --border: #e2e8f0;
+            --apple-blue: #0071e3;
+            --link-blue: #0066cc;
+            --link-blue-dark: #2997ff;
+            --black: #000000;
+            --near-black: #1d1d1f;
+            --light-gray: #f5f5f7;
+            --white: #ffffff;
+            --text-secondary: rgba(0, 0, 0, 0.8);
+            --text-tertiary: rgba(0, 0, 0, 0.56);
+            --dark-surface: #272729;
+            --card-shadow: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
         }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: local('SF Pro Display'), local('-apple-system'), local('BlinkMacSystemFont');
+        }
+        @font-face {
+            font-family: 'SF Pro Text';
+            src: local('SF Pro Text'), local('-apple-system'), local('BlinkMacSystemFont');
+        }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--bg);
-            max-width: 900px;
+            font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 17px;
+            line-height: 1.47;
+            letter-spacing: -0.374px;
+            color: var(--near-black);
+            background: var(--white);
+        }
+
+        /* Section alternating backgrounds */
+        .section-dark {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 0;
+        }
+        .section-light {
+            background: var(--light-gray);
+            color: var(--near-black);
+            padding: 80px 0;
+        }
+        .section-white {
+            background: var(--white);
+            color: var(--near-black);
+            padding: 60px 0;
+        }
+
+        .container {
+            max-width: 980px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 24px;
         }
+
+        /* Typography - SF Pro Display for headings */
         h1 {
-            font-size: 2rem;
-            color: var(--primary);
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.07;
+            letter-spacing: -0.28px;
+            margin-bottom: 24px;
         }
+
         h2 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid var(--secondary);
-            padding-left: 0.75rem;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 40px;
+            font-weight: 600;
+            line-height: 1.10;
+            letter-spacing: normal;
+            margin-bottom: 20px;
         }
+
         h3 {
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 28px;
+            font-weight: 400;
+            line-height: 1.14;
+            letter-spacing: 0.196px;
+            margin-bottom: 16px;
+            margin-top: 40px;
         }
+
         h4 {
-            font-size: 1rem;
-            color: var(--text);
-            margin-top: 1rem;
-            margin-bottom: 0.5rem;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 21px;
+            font-weight: 600;
+            line-height: 1.19;
+            letter-spacing: 0.231px;
+            margin-bottom: 12px;
         }
-        p { margin-bottom: 1rem; }
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .meta {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
         }
-        .meta strong { display: block; margin-bottom: 0.25rem; }
-        .meta a { color: #93c5fd; }
-        .summary {
-            background: #ecfdf5;
-            border-left: 4px solid var(--accent);
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
+
+        .section-dark p,
+        .section-dark li {
+            color: rgba(255, 255, 255, 0.8);
         }
+
+        /* Links */
+        a {
+            color: var(--link-blue);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .section-dark a {
+            color: var(--link-blue-dark);
+        }
+
+        /* Hero section */
+        .hero {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 120px 24px 100px;
+        }
+        .hero h1 {
+            max-width: 900px;
+            margin: 0 auto 24px;
+        }
+        .hero .subtitle {
+            font-size: 21px;
+            font-weight: 400;
+            line-height: 1.19;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        /* Meta info pills */
+        .meta-pills {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .meta-pill {
+            background: var(--dark-surface);
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            letter-spacing: -0.224px;
+        }
+        .meta-pill strong {
+            color: var(--white);
+        }
+        .meta-pill span {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* CTA buttons */
+        .cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        .cta-primary {
+            background: var(--apple-blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-primary:hover {
+            text-decoration: none;
+            opacity: 0.9;
+        }
+        .cta-secondary {
+            background: transparent;
+            color: var(--link-blue-dark);
+            padding: 12px 24px;
+            border: 1px solid var(--link-blue-dark);
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 400;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-secondary:hover {
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Key finding highlight */
         .key-finding {
-            background: #fef3c7;
-            border: 1px solid #f59e0b;
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
+            background: var(--dark-surface);
+            border-radius: 12px;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: left;
         }
+        .key-finding-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--apple-blue);
+            margin-bottom: 12px;
+        }
+        .key-finding p {
+            font-size: 21px;
+            line-height: 1.38;
+            color: var(--white);
+            margin: 0;
+        }
+
+        /* Summary box */
+        .summary-box {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: var(--card-shadow);
+            margin: 32px 0;
+        }
+        .summary-box h3 {
+            margin-top: 0;
+            color: var(--near-black);
+        }
+
+        /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.95rem;
+            margin: 24px 0;
+            font-size: 14px;
+            letter-spacing: -0.224px;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
         }
         th {
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem;
+            background: var(--near-black);
+            color: var(--white);
+            padding: 16px 20px;
             text-align: left;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
         td {
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--border);
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            color: var(--text-secondary);
         }
-        tr:nth-child(even) { background: #f1f5f9; }
-        tr:hover { background: #e0e7ff; }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:hover td {
+            background: rgba(0, 113, 227, 0.04);
+        }
+        td strong {
+            color: var(--near-black);
+        }
+
+        /* Lists */
         ul, ol {
-            margin: 1rem 0 1rem 2rem;
+            margin: 16px 0 16px 24px;
         }
-        li { margin-bottom: 0.5rem; }
-        hr {
-            border: none;
-            border-top: 2px solid var(--border);
-            margin: 2rem 0;
+        li {
+            margin-bottom: 12px;
+            color: var(--text-secondary);
         }
-        .circuit-box {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        li strong {
+            color: var(--near-black);
         }
-        .circuit-box h4 {
-            color: var(--primary);
-            margin-top: 0;
+        .section-dark li strong {
+            color: var(--white);
         }
-        .paper-list {
-            background: white;
-            border-radius: 8px;
-            padding: 1rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+        /* Circuit cards */
+        .circuit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
         }
-        .paper-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
+        .circuit-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: var(--card-shadow);
         }
-        .paper-list li:last-child { border-bottom: none; }
-        .citation-count {
-            background: var(--primary);
-            color: white;
-            font-size: 0.8rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            margin-left: 0.5rem;
+        .circuit-card h4 {
+            color: var(--near-black);
+            margin-bottom: 16px;
+        }
+        .circuit-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .circuit-card li {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        /* Paper list */
+        .paper-section {
+            margin: 48px 0;
+        }
+        .paper-category {
+            margin-bottom: 32px;
+        }
+        .paper-category h4 {
+            color: var(--near-black);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .paper-item {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            gap: 16px;
+        }
+        .paper-item:last-child {
+            border-bottom: none;
+        }
+        .paper-info {
+            flex: 1;
+        }
+        .paper-title {
+            font-weight: 600;
+            color: var(--near-black);
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        .paper-desc {
+            font-size: 14px;
+            color: var(--text-tertiary);
+        }
+        .paper-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
         }
         .tag {
             display: inline-block;
-            background: #e0e7ff;
-            color: var(--primary);
-            font-size: 0.75rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            margin-right: 0.25rem;
+            background: rgba(0, 113, 227, 0.1);
+            color: var(--apple-blue);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 980px;
+            letter-spacing: 0.3px;
+        }
+        .citation-count {
+            background: var(--near-black);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 980px;
         }
         .doi-link {
-            font-size: 0.85rem;
-            color: #6366f1;
-            margin-left: 0.5rem;
+            color: var(--link-blue);
+            font-size: 14px;
+            white-space: nowrap;
         }
         .doi-link:hover {
-            color: var(--primary);
+            color: var(--apple-blue);
         }
+
+        /* Conclusion */
+        .conclusion-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .conclusion-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 17px;
+        }
+        .conclusion-list li:last-child {
+            border-bottom: none;
+        }
+        .conclusion-list strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* Footer */
         footer {
-            margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border);
+            background: var(--light-gray);
+            padding: 40px 24px;
             text-align: center;
-            color: #64748b;
-            font-size: 0.9rem;
+        }
+        footer p {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            margin: 4px 0;
+        }
+        footer a {
+            color: var(--link-blue);
+        }
+
+        /* Section divider */
+        .section-number {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--apple-blue);
+            margin-bottom: 8px;
+        }
+        .section-dark .section-number {
+            color: var(--link-blue-dark);
+        }
+
+        /* Responsive */
+        @media (max-width: 834px) {
+            h1 { font-size: 40px; }
+            h2 { font-size: 32px; }
+            h3 { font-size: 24px; }
+            .hero { padding: 80px 24px 60px; }
+            .section-dark, .section-light, .section-white { padding: 60px 0; }
+            .circuit-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            h1 { font-size: 32px; }
+            h2 { font-size: 28px; }
+            .meta-pills { flex-direction: column; align-items: center; }
+            .cta-group { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
-    <h1>Literature Review: Dopamine, Serotonin, and Norepinephrine Interactions in Shaping Animal Behavior</h1>
 
-    <div class="meta">
-        <strong>Generated:</strong> April 7, 2026<br>
-        <strong>Topic:</strong> How dopamine, serotonin, and norepinephrine interact and function together to shape animal behavior, including cellular mechanisms<br>
-        <strong>Papers Analyzed:</strong> 4,800+ from Semantic Scholar<br>
-        <strong>Top Papers Saved:</strong> 21 papers to <a href="https://www.zotero.org/groups/5-ht_da" target="_blank">Zotero Group Library (5-HT_DA)</a>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Dopamine, Serotonin, and Norepinephrine Interactions in Shaping Animal Behavior</h1>
+            <p class="subtitle">A comprehensive literature review synthesizing current understanding of how the three major monoamine neurotransmitters interact to regulate behavior.</p>
 
-    <h2>Executive Summary</h2>
-    <div class="summary">
-        <p>This literature review synthesizes current understanding of how the three major monoamine neurotransmitters—<strong>dopamine (DA)</strong>, <strong>serotonin (5-HT)</strong>, and <strong>norepinephrine (NE)</strong>—interact to regulate animal behavior.</p>
-        <p>The field has evolved from viewing these systems as independent modulators to recognizing them as an <strong>interconnected network</strong> that collectively shapes brain states, reward processing, motivation, and emotional regulation.</p>
-    </div>
+            <div class="cta-group">
+                <a href="https://www.zotero.org/groups/5-ht_da" target="_blank" class="cta-primary">View Zotero Library</a>
+                <a href="#papers" class="cta-secondary">Browse Papers</a>
+            </div>
 
-    <div class="key-finding">
-        <strong>🔑 Key Finding:</strong> The additive effect of serotonin and dopamine conveys significant reward-related information that neither system alone can provide. This joint activity is essential for normal behavioral function and is disrupted in psychiatric disorders including depression, schizophrenia, and addiction.
-    </div>
+            <div class="meta-pills">
+                <div class="meta-pill">
+                    <strong>4,800+</strong> <span>Papers Analyzed</span>
+                </div>
+                <div class="meta-pill">
+                    <strong>21</strong> <span>Key Papers Saved</span>
+                </div>
+                <div class="meta-pill">
+                    <strong>April 2026</strong> <span>Generated</span>
+                </div>
+            </div>
 
-    <hr>
+            <div class="key-finding">
+                <div class="key-finding-label">Key Finding</div>
+                <p>The additive effect of serotonin and dopamine conveys significant reward-related information that neither system alone can provide. This joint activity is essential for normal behavioral function and is disrupted in psychiatric disorders including depression, schizophrenia, and addiction.</p>
+            </div>
+        </div>
+    </section>
 
-    <h2>1. Monoamines as Network "Switches"</h2>
+    <!-- Executive Summary -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-number">Overview</div>
+            <h2>Executive Summary</h2>
+            <p>This literature review synthesizes current understanding of how the three major monoamine neurotransmitters—<strong>dopamine (DA)</strong>, <strong>serotonin (5-HT)</strong>, and <strong>norepinephrine (NE)</strong>—interact to regulate animal behavior.</p>
+            <p>The field has evolved from viewing these systems as independent modulators to recognizing them as an <strong>interconnected network</strong> that collectively shapes brain states, reward processing, motivation, and emotional regulation.</p>
+        </div>
+    </section>
 
-    <h3>Conceptual Framework</h3>
-    <p>Modern neuroscience has moved beyond viewing monoamines as simple modulators that increase or decrease neural activity. Instead, they function as <strong>"switches" that alter the state of target networks</strong> (<a href="https://doi.org/10.1177/1073858420974336" target="_blank">Azizi, 2020</a>).</p>
+    <!-- Section 1: Network Switches -->
+    <section class="section-white">
+        <div class="container">
+            <div class="section-number">Section 1</div>
+            <h2>Monoamines as Network "Switches"</h2>
 
-    <p><strong>Key Concept:</strong> Monoamines reversibly reconfigure entire network dynamics through:</p>
-    <ul>
-        <li>Diverse receptor subtypes (5-HT alone has 14+ receptor types) (<a href="https://doi.org/10.1016/bs.pbr.2021.02.001" target="_blank">De Deurwaerdère et al., 2021</a>)</li>
-        <li>Region-specific effects depending on local receptor expression (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
-        <li>State-dependent modulation that varies with arousal and behavioral context (<a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank">Yang et al., 2023</a>)</li>
-    </ul>
+            <h3>Conceptual Framework</h3>
+            <p>Modern neuroscience has moved beyond viewing monoamines as simple modulators that increase or decrease neural activity. Instead, they function as <strong>"switches" that alter the state of target networks</strong> (<a href="https://doi.org/10.1177/1073858420974336" target="_blank">Azizi, 2020</a>).</p>
 
-    <h3>Implications</h3>
-    <p>This framework explains why the same neurotransmitter can have opposite effects in different brain regions or behavioral states, and why pharmacological interventions often have complex, context-dependent effects.</p>
+            <p><strong>Key Concept:</strong> Monoamines reversibly reconfigure entire network dynamics through:</p>
+            <ul>
+                <li>Diverse receptor subtypes (5-HT alone has 14+ receptor types) (<a href="https://doi.org/10.1016/bs.pbr.2021.02.001" target="_blank">De Deurwaerdère et al., 2021</a>)</li>
+                <li>Region-specific effects depending on local receptor expression (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
+                <li>State-dependent modulation that varies with arousal and behavioral context (<a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank">Yang et al., 2023</a>)</li>
+            </ul>
 
-    <hr>
+            <h3>Implications</h3>
+            <p>This framework explains why the same neurotransmitter can have opposite effects in different brain regions or behavioral states, and why pharmacological interventions often have complex, context-dependent effects.</p>
+        </div>
+    </section>
 
-    <h2>2. Dopamine-Serotonin Opponent & Cooperative Dynamics</h2>
+    <!-- Section 2: DA-5HT Dynamics -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-number">Section 2</div>
+            <h2>Dopamine-Serotonin Opponent & Cooperative Dynamics</h2>
 
-    <h3>Historical View: Opponent Processes</h3>
-    <p>The original conceptualization viewed serotonin as primarily <strong>inhibiting</strong> dopamine function:</p>
-    <ul>
-        <li>5-HT as a "brake" on behavior</li>
-        <li>DA as an "accelerator"</li>
-        <li>Depression arising from excessive 5-HT inhibition of DA</li>
-    </ul>
+            <h3>Historical View: Opponent Processes</h3>
+            <p>The original conceptualization viewed serotonin as primarily <strong>inhibiting</strong> dopamine function:</p>
+            <ul>
+                <li>5-HT as a "brake" on behavior</li>
+                <li>DA as an "accelerator"</li>
+                <li>Depression arising from excessive 5-HT inhibition of DA</li>
+            </ul>
 
-    <h3>Modern Understanding: Mutual Influence</h3>
-    <p>Current evidence demonstrates a more nuanced picture (<a href="https://doi.org/10.1016/bs.pbr.2021.02.001" target="_blank">De Deurwaerdère et al., 2021</a>):</p>
+            <h3>Modern Understanding: Mutual Influence</h3>
+            <p>Current evidence demonstrates a more nuanced picture (<a href="https://doi.org/10.1016/bs.pbr.2021.02.001" target="_blank">De Deurwaerdère et al., 2021</a>):</p>
 
-    <table>
-        <tr>
-            <th>Interaction Type</th>
-            <th>Mechanism</th>
-            <th>Behavioral Outcome</th>
-        </tr>
-        <tr>
-            <td><strong>Cooperative</strong></td>
-            <td>5-HT potentiates DA release in striatum via glutamate co-release (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</td>
-            <td>Enhanced motivation and vigor (<a href="https://doi.org/10.1523/JNEUROSCI.2088-17.2018" target="_blank">Bailey et al., 2018</a>)</td>
-        </tr>
-        <tr>
-            <td><strong>Opponent</strong></td>
-            <td>DRN 5-HT inhibits operant responding via VTA (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</td>
-            <td>Improved behavioral control</td>
-        </tr>
-        <tr>
-            <td><strong>Complementary</strong></td>
-            <td>DA encodes reward prediction errors; 5-HT encodes reward value (<a href="https://doi.org/10.1523/JNEUROSCI.0602-24.2024" target="_blank">Spring & Nautiyal, 2024</a>)</td>
-            <td>Complete reward processing</td>
-        </tr>
-    </table>
+            <table>
+                <tr>
+                    <th>Interaction Type</th>
+                    <th>Mechanism</th>
+                    <th>Behavioral Outcome</th>
+                </tr>
+                <tr>
+                    <td><strong>Cooperative</strong></td>
+                    <td>5-HT potentiates DA release in striatum via glutamate co-release (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</td>
+                    <td>Enhanced motivation and vigor (<a href="https://doi.org/10.1523/JNEUROSCI.2088-17.2018" target="_blank">Bailey et al., 2018</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>Opponent</strong></td>
+                    <td>DRN 5-HT inhibits operant responding via VTA (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</td>
+                    <td>Improved behavioral control</td>
+                </tr>
+                <tr>
+                    <td><strong>Complementary</strong></td>
+                    <td>DA encodes reward prediction errors; 5-HT encodes reward value (<a href="https://doi.org/10.1523/JNEUROSCI.0602-24.2024" target="_blank">Spring & Nautiyal, 2024</a>)</td>
+                    <td>Complete reward processing</td>
+                </tr>
+            </table>
 
-    <h3>Critical Finding</h3>
-    <p><a href="https://doi.org/10.3389/fnhum.2017.00484" target="_blank">Fischer & Ullsperger (2017)</a> demonstrated that <strong>the additive effect of serotonin and DA conveys significant reward-related information</strong> that is subjectively euphorizing. Neither neurotransmitter alone produces this effect.</p>
+            <h3>Critical Finding</h3>
+            <p><a href="https://doi.org/10.3389/fnhum.2017.00484" target="_blank">Fischer & Ullsperger (2017)</a> demonstrated that <strong>the additive effect of serotonin and DA conveys significant reward-related information</strong> that is subjectively euphorizing. Neither neurotransmitter alone produces this effect.</p>
+        </div>
+    </section>
 
-    <hr>
+    <!-- Section 3: Circuit Mechanisms -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-number">Section 3</div>
+            <h2>Circuit-Specific Mechanisms</h2>
 
-    <h2>3. Circuit-Specific Mechanisms</h2>
+            <div class="circuit-grid">
+                <div class="circuit-card">
+                    <h4>Mesolimbic Pathway (VTA → NAc)</h4>
+                    <ul>
+                        <li><strong>Primary function:</strong> Reward processing and motivation</li>
+                        <li><strong>DA role:</strong> Phasic signaling for unexpected rewards (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>)</li>
+                        <li><strong>5-HT role:</strong> DRN 5-HT/glutamate neurons establish excitatory synapses on VTA DA neurons (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
+                        <li><strong>Interaction:</strong> DRN→VTA 5-HT inhibits operant responding for reward (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</li>
+                    </ul>
+                </div>
 
-    <div class="circuit-box">
-        <h4>3.1 Mesolimbic Pathway (VTA → NAc)</h4>
-        <ul>
-            <li><strong>Primary function:</strong> Reward processing and motivation</li>
-            <li><strong>DA role:</strong> Phasic signaling for unexpected rewards (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a> - dLight imaging)</li>
-            <li><strong>5-HT role:</strong> DRN 5-HT/glutamate neurons establish excitatory synapses on VTA DA neurons (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
-            <li><strong>Interaction:</strong> DRN→VTA 5-HT inhibits operant responding for reward (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</li>
-        </ul>
-    </div>
+                <div class="circuit-card">
+                    <h4>Mesocortical Pathway (VTA → PFC)</h4>
+                    <ul>
+                        <li><strong>Primary function:</strong> Executive function and decision-making</li>
+                        <li><strong>DA role:</strong> Working memory, cognitive flexibility</li>
+                        <li><strong>NE role:</strong> Attention, arousal, stress response</li>
+                        <li><strong>Interaction:</strong> Both catecholamines converge on PFC neurons (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</li>
+                    </ul>
+                </div>
 
-    <div class="circuit-box">
-        <h4>3.2 Mesocortical Pathway (VTA → PFC)</h4>
-        <ul>
-            <li><strong>Primary function:</strong> Executive function and decision-making</li>
-            <li><strong>DA role:</strong> Working memory, cognitive flexibility</li>
-            <li><strong>NE role:</strong> Attention, arousal, stress response</li>
-            <li><strong>Interaction:</strong> Both catecholamines converge on PFC neurons (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</li>
-        </ul>
-    </div>
+                <div class="circuit-card">
+                    <h4>Dorsal Raphe → VTA Circuit</h4>
+                    <ul>
+                        <li><strong>Primary function:</strong> Reward modulation</li>
+                        <li><strong>Mechanism:</strong> DRN dual 5-HT/glutamate neurons co-release glutamate onto VTA DA neurons (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
+                        <li><strong>Excitation:</strong> Glutamate co-release activates mesoaccumbens DA neurons</li>
+                        <li><strong>Inhibition:</strong> VTA GABA neurons inhibit DRN 5-HT neurons (<a href="https://doi.org/10.3389/fnins.2022.877054" target="_blank">Rahaman et al., 2022</a>)</li>
+                    </ul>
+                </div>
 
-    <div class="circuit-box">
-        <h4>3.3 Dorsal Raphe → VTA Circuit</h4>
-        <ul>
-            <li><strong>Primary function:</strong> Reward modulation</li>
-            <li><strong>Mechanism:</strong> DRN dual 5-HT/glutamate neurons co-release glutamate onto VTA DA neurons (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
-            <li><strong>Excitation:</strong> Glutamate co-release activates mesoaccumbens DA neurons → promotes reward</li>
-            <li><strong>Inhibition:</strong> VTA GABA neurons inhibit DRN 5-HT neurons (<a href="https://doi.org/10.3389/fnins.2022.877054" target="_blank">Rahaman et al., 2022</a>)</li>
-            <li><strong>Independence:</strong> In striatum, DA and 5-HT operate largely independently with selective circuit-dependent crosstalk (<a href="https://doi.org/10.1101/2025.03.28.645922" target="_blank">Liu et al., 2025</a>)</li>
-        </ul>
-    </div>
+                <div class="circuit-card">
+                    <h4>NAc Input-Defined Circuits</h4>
+                    <p style="margin-bottom: 12px;"><a href="https://doi.org/10.1038/s41467-022-33843-3" target="_blank">Zhou et al. (2022)</a> demonstrated that NAc neurons are organized by their inputs:</p>
+                    <ul>
+                        <li><strong>NAc<sub>BLA</sub>:</strong> Receive BLA input → promote positive reinforcement via VTA DA disinhibition</li>
+                        <li><strong>NAc<sub>PVT</sub>:</strong> Receive PVT input → mediate aversion via lateral hypothalamus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="circuit-box">
-        <h4>3.4 Nucleus Accumbens Input-Defined Circuits</h4>
-        <p><a href="https://doi.org/10.1038/s41467-022-33843-3" target="_blank">Zhou et al. (2022)</a> demonstrated that NAc neurons are organized by their inputs:</p>
-        <ul>
-            <li><strong>NAc<sub>BLA</sub> neurons:</strong> Receive BLA input → promote positive reinforcement via VTA DA disinhibition</li>
-            <li><strong>NAc<sub>PVT</sub> neurons:</strong> Receive PVT input → mediate aversion via lateral hypothalamus</li>
-        </ul>
-    </div>
+    <!-- Section 4: Cellular Mechanisms -->
+    <section class="section-white">
+        <div class="container">
+            <div class="section-number">Section 4</div>
+            <h2>Cellular and Molecular Mechanisms</h2>
 
-    <hr>
+            <h3>Receptor-Level Interactions</h3>
+            <table>
+                <tr>
+                    <th>Receptor</th>
+                    <th>Location</th>
+                    <th>Effect on DA</th>
+                    <th>Behavioral Role</th>
+                </tr>
+                <tr>
+                    <td><strong>5-HT2A</strong></td>
+                    <td>VTA, PFC</td>
+                    <td>Excites DA neurons</td>
+                    <td>Motivation, psychedelic effects (<a href="https://doi.org/10.1016/bs.pbr.2021.02.001" target="_blank">De Deurwaerdère et al., 2021</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>5-HT2C</strong></td>
+                    <td>VTA, NAc</td>
+                    <td>Inhibits DA release</td>
+                    <td>Impulse control, satiety (<a href="https://doi.org/10.1523/JNEUROSCI.2088-17.2018" target="_blank">Bailey et al., 2018</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>5-HT1A</strong></td>
+                    <td>DRN (autoreceptor)</td>
+                    <td>Indirect DA modulation</td>
+                    <td>Anxiety, mood (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>D2</strong></td>
+                    <td>Striatum, VTA</td>
+                    <td>Autoinhibition</td>
+                    <td>Reward learning (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>α2-adrenergic</strong></td>
+                    <td>LC, PFC</td>
+                    <td>NE feedback inhibition</td>
+                    <td>Attention, arousal (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</td>
+                </tr>
+            </table>
 
-    <h2>4. Cellular and Molecular Mechanisms</h2>
+            <h3>Transporter Dynamics</h3>
+            <p>The monoamine transporters (DAT, SERT, NET) are critical regulators:</p>
+            <ul>
+                <li><strong>Phosphorylation states</strong> determine trafficking and transport capacity (<a href="https://doi.org/10.3390/ijms26167713" target="_blank">Jayanthi & Ramamoorthy, 2025</a>)</li>
+                <li><strong>Psychostimulants</strong> (cocaine, amphetamine) and <strong>antidepressants</strong> (SSRIs, SNRIs) target these transporters</li>
+                <li><strong>Dynamic regulation</strong> allows rapid adaptation to behavioral demands</li>
+            </ul>
 
-    <h3>4.1 Receptor-Level Interactions</h3>
-    <table>
-        <tr>
-            <th>Receptor</th>
-            <th>Location</th>
-            <th>Effect on DA</th>
-            <th>Behavioral Role</th>
-        </tr>
-        <tr>
-            <td>5-HT2A</td>
-            <td>VTA, PFC</td>
-            <td>Excites DA neurons</td>
-            <td>Motivation, psychedelic effects (<a href="https://doi.org/10.1016/bs.pbr.2021.02.001" target="_blank">De Deurwaerdère et al., 2021</a>)</td>
-        </tr>
-        <tr>
-            <td>5-HT2C</td>
-            <td>VTA, NAc</td>
-            <td>Inhibits DA release</td>
-            <td>Impulse control, satiety (<a href="https://doi.org/10.1523/JNEUROSCI.2088-17.2018" target="_blank">Bailey et al., 2018</a>)</td>
-        </tr>
-        <tr>
-            <td>5-HT1A</td>
-            <td>DRN (autoreceptor)</td>
-            <td>Indirect DA modulation</td>
-            <td>Anxiety, mood (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</td>
-        </tr>
-        <tr>
-            <td>D2</td>
-            <td>Striatum, VTA</td>
-            <td>Autoinhibition</td>
-            <td>Reward learning (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>)</td>
-        </tr>
-        <tr>
-            <td>α2-adrenergic</td>
-            <td>LC, PFC</td>
-            <td>NE feedback inhibition</td>
-            <td>Attention, arousal (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</td>
-        </tr>
-    </table>
+            <h3>Synaptic Plasticity</h3>
+            <p>Monoamines gate long-term potentiation (LTP) and depression (LTD):</p>
+            <ul>
+                <li><strong>DA:</strong> Required for reward-related learning in striatum (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>)</li>
+                <li><strong>5-HT:</strong> Modulates plasticity in hippocampus and amygdala (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
+                <li><strong>NE:</strong> Enhances memory consolidation under arousal (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</li>
+                <li><strong>Timing:</strong> Effects range from milliseconds to days (<a href="https://doi.org/10.1111/pcn.12942" target="_blank">Yagishita, 2019</a>)</li>
+            </ul>
+        </div>
+    </section>
 
-    <h3>4.2 Transporter Dynamics</h3>
-    <p>The monoamine transporters (DAT, SERT, NET) are critical regulators:</p>
-    <ul>
-        <li><strong>Phosphorylation states</strong> determine trafficking and transport capacity (<a href="https://doi.org/10.3390/ijms26167713" target="_blank">Jayanthi & Ramamoorthy, 2025</a>)</li>
-        <li><strong>Psychostimulants</strong> (cocaine, amphetamine) and <strong>antidepressants</strong> (SSRIs, SNRIs) target these transporters</li>
-        <li><strong>Dynamic regulation</strong> allows rapid adaptation to behavioral demands</li>
-    </ul>
+    <!-- Section 5: Behavioral Functions -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-number">Section 5</div>
+            <h2>Behavioral Functions</h2>
 
-    <h3>4.3 Synaptic Plasticity</h3>
-    <p>Monoamines gate long-term potentiation (LTP) and depression (LTD):</p>
-    <ul>
-        <li><strong>DA:</strong> Required for reward-related learning in striatum (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>)</li>
-        <li><strong>5-HT:</strong> Modulates plasticity in hippocampus and amygdala (<a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
-        <li><strong>NE:</strong> Enhances memory consolidation under arousal (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</li>
-        <li><strong>Timing:</strong> Effects range from milliseconds to days (<a href="https://doi.org/10.1111/pcn.12942" target="_blank">Yagishita, 2019</a>)</li>
-    </ul>
+            <h3>Reward and Motivation</h3>
+            <table>
+                <tr>
+                    <th>Behavior</th>
+                    <th>Primary System</th>
+                    <th>Mechanism</th>
+                </tr>
+                <tr>
+                    <td><strong>Response vigor</strong></td>
+                    <td>DA (dorsomedial striatum)</td>
+                    <td>Potentiated by 5-HT2C modulation (<a href="https://doi.org/10.1523/JNEUROSCI.2088-17.2018" target="_blank">Bailey et al., 2018</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>Reward anticipation</strong></td>
+                    <td>DA (NAc)</td>
+                    <td>Phasic release to reward-predictive cues (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>Reward value encoding</strong></td>
+                    <td>5-HT (DMS)</td>
+                    <td>Tracks subjective value (<a href="https://doi.org/10.1523/JNEUROSCI.0602-24.2024" target="_blank">Spring & Nautiyal, 2024</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>Patience/waiting</strong></td>
+                    <td>5-HT (DRN)</td>
+                    <td>Sustained activity during delay; effect maximized by reward uncertainty (<a href="https://doi.org/10.1038/s41467-018-04496-y" target="_blank">Miyazaki et al., 2018</a>)</td>
+                </tr>
+            </table>
 
-    <hr>
+            <h3>Aversion and Fear</h3>
+            <table>
+                <tr>
+                    <th>Behavior</th>
+                    <th>Primary System</th>
+                    <th>Mechanism</th>
+                </tr>
+                <tr>
+                    <td><strong>Fear-reward tradeoff</strong></td>
+                    <td>DA, 5-HT, NE (frontal cortex)</td>
+                    <td>All three monoamines coordinate during approach/avoidance decisions (<a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank">Yang et al., 2023</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>Aversive learning</strong></td>
+                    <td>NAc<sub>PVT</sub> neurons</td>
+                    <td>PVT inputs to NAc mediate aversion via lateral hypothalamus (<a href="https://doi.org/10.1038/s41467-022-33843-3" target="_blank">Zhou et al., 2022</a>)</td>
+                </tr>
+                <tr>
+                    <td><strong>Stress response</strong></td>
+                    <td>NE (LC → PFC)</td>
+                    <td>NE and DA have opposing and cooperative effects on PFC circuitry (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</td>
+                </tr>
+            </table>
 
-    <h2>5. Behavioral Functions</h2>
+            <h3>Behavioral Control</h3>
+            <p><a href="https://doi.org/10.1016/j.jaacop.2024.01.010" target="_blank">Martin & Eshel (2024)</a> proposed a model for aggression:</p>
+            <ul>
+                <li><strong>Dopamine:</strong> Acts as behavioral "accelerator"</li>
+                <li><strong>Serotonin:</strong> Acts as behavioral "brake"</li>
+                <li><strong>Imbalance:</strong> Leads to impulsivity, aggression, or behavioral rigidity</li>
+            </ul>
+        </div>
+    </section>
 
-    <h3>5.1 Reward and Motivation</h3>
-    <table>
-        <tr>
-            <th>Behavior</th>
-            <th>Primary System</th>
-            <th>Mechanism</th>
-        </tr>
-        <tr>
-            <td>Response vigor</td>
-            <td>DA (dorsomedial striatum)</td>
-            <td>Potentiated by 5-HT2C modulation (<a href="https://doi.org/10.1523/JNEUROSCI.2088-17.2018" target="_blank">Bailey et al., 2018</a>)</td>
-        </tr>
-        <tr>
-            <td>Reward anticipation</td>
-            <td>DA (NAc)</td>
-            <td>Phasic release to reward-predictive cues (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>)</td>
-        </tr>
-        <tr>
-            <td>Reward value encoding</td>
-            <td>5-HT (DMS)</td>
-            <td>Tracks subjective value (<a href="https://doi.org/10.1523/JNEUROSCI.0602-24.2024" target="_blank">Spring & Nautiyal, 2024</a>)</td>
-        </tr>
-        <tr>
-            <td>Patience/waiting</td>
-            <td>5-HT (DRN)</td>
-            <td>Sustained activity during delay; effect maximized by reward uncertainty (<a href="https://doi.org/10.1038/s41467-018-04496-y" target="_blank">Miyazaki et al., 2018</a>)</td>
-        </tr>
-    </table>
+    <!-- Section 6: Clinical Relevance -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-number">Section 6</div>
+            <h2>Clinical Relevance</h2>
 
-    <h3>5.2 Aversion and Fear</h3>
-    <table>
-        <tr>
-            <th>Behavior</th>
-            <th>Primary System</th>
-            <th>Mechanism</th>
-        </tr>
-        <tr>
-            <td>Fear-reward tradeoff</td>
-            <td>DA, 5-HT, NE (frontal cortex)</td>
-            <td>All three monoamines coordinate during approach/avoidance decisions (<a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank">Yang et al., 2023</a>)</td>
-        </tr>
-        <tr>
-            <td>Aversive learning</td>
-            <td>NAc<sub>PVT</sub> neurons</td>
-            <td>PVT inputs to NAc mediate aversion via lateral hypothalamus (<a href="https://doi.org/10.1038/s41467-022-33843-3" target="_blank">Zhou et al., 2022</a>)</td>
-        </tr>
-        <tr>
-            <td>Stress response</td>
-            <td>NE (LC → PFC)</td>
-            <td>NE and DA have opposing and cooperative effects on PFC circuitry (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</td>
-        </tr>
-    </table>
+            <h3>Depression</h3>
+            <p><a href="https://doi.org/10.1007/s002130100746" target="_blank">Zangen et al. (2001)</a> demonstrated that <strong>the inability of serotonin to stimulate dopamine release in the nucleus accumbens</strong> may be essential in depression onset:</p>
+            <ul>
+                <li>Anhedonia (inability to experience pleasure)</li>
+                <li>Lack of motivation</li>
+                <li>Reduced reward responsiveness</li>
+            </ul>
 
-    <h3>5.3 Behavioral Control</h3>
-    <p><a href="https://doi.org/10.1016/j.jaacop.2024.01.010" target="_blank">Martin & Eshel (2024)</a> proposed a model for aggression:</p>
-    <ul>
-        <li><strong>Dopamine:</strong> Acts as behavioral "accelerator"</li>
-        <li><strong>Serotonin:</strong> Acts as behavioral "brake"</li>
-        <li><strong>Imbalance:</strong> Leads to impulsivity, aggression, or behavioral rigidity</li>
-    </ul>
+            <h3>Anhedonia Across Disorders</h3>
+            <p><a href="https://doi.org/10.2147/NDT.S367839" target="_blank">Liang et al. (2022)</a> compared anhedonia in depression vs. schizophrenia:</p>
+            <table>
+                <tr>
+                    <th>Disorder</th>
+                    <th>Anhedonia Subtype</th>
+                    <th>Neural Basis</th>
+                </tr>
+                <tr>
+                    <td><strong>Depression</strong></td>
+                    <td>Impaired anticipatory pleasure</td>
+                    <td>Frontostriatal dysfunction</td>
+                </tr>
+                <tr>
+                    <td><strong>Schizophrenia</strong></td>
+                    <td>Deficits in reward value representation</td>
+                    <td>Mesocortical dysfunction</td>
+                </tr>
+            </table>
 
-    <hr>
+            <h3>Therapeutic Implications</h3>
+            <ul>
+                <li><strong>SSRIs:</strong> May work partly through downstream DA effects; combining optogenetic 5-HT activation with SSRI synergistically reduces responding (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</li>
+                <li><strong>SNRIs:</strong> Target both 5-HT and NE systems; NE-DA interactions in PFC affect cognition (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</li>
+                <li><strong>Atypical antipsychotics:</strong> Block 5-HT2A to disinhibit DA in PFC</li>
+                <li><strong>Novel targets:</strong> 5-HT2C modulators enhance goal-directed vigor via DA potentiation (<a href="https://doi.org/10.1523/JNEUROSCI.2088-17.2018" target="_blank">Bailey et al., 2018</a>)</li>
+            </ul>
+        </div>
+    </section>
 
-    <h2>6. Clinical Relevance</h2>
+    <!-- Section 7: Methods -->
+    <section class="section-white">
+        <div class="container">
+            <div class="section-number">Section 7</div>
+            <h2>Methodological Advances</h2>
 
-    <h3>6.1 Depression</h3>
-    <p><a href="https://doi.org/10.1007/s002130100746" target="_blank">Zangen et al. (2001)</a> demonstrated that <strong>the inability of serotonin to stimulate dopamine release in the nucleus accumbens</strong> may be essential in depression onset:</p>
-    <ul>
-        <li>Anhedonia (inability to experience pleasure)</li>
-        <li>Lack of motivation</li>
-        <li>Reduced reward responsiveness</li>
-    </ul>
+            <h3>Genetically Encoded Sensors</h3>
+            <p><a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al. (2018)</a> developed <strong>dLight1</strong>, enabling ultrafast optical recording of dopamine dynamics. Similar sensors now exist for serotonin (GRAB-5-HT) and norepinephrine.</p>
 
-    <h3>6.2 Anhedonia Across Disorders</h3>
-    <p><a href="https://doi.org/10.2147/NDT.S367839" target="_blank">Liang et al. (2022)</a> compared anhedonia in depression vs. schizophrenia:</p>
-    <table>
-        <tr>
-            <th>Disorder</th>
-            <th>Anhedonia Subtype</th>
-            <th>Neural Basis</th>
-        </tr>
-        <tr>
-            <td>Depression</td>
-            <td>Impaired anticipatory pleasure</td>
-            <td>Frontostriatal dysfunction</td>
-        </tr>
-        <tr>
-            <td>Schizophrenia</td>
-            <td>Deficits in reward value representation</td>
-            <td>Mesocortical dysfunction</td>
-        </tr>
-    </table>
+            <h3>Optogenetics and Chemogenetics</h3>
+            <p>Cell-type-specific manipulation allows dissection of:</p>
+            <ul>
+                <li>DRN 5-HT neuron activation promotes patience (<a href="https://doi.org/10.1038/s41467-018-04496-y" target="_blank">Miyazaki et al., 2018</a>)</li>
+                <li>DRN→VTA pathway necessary for 5-HT inhibition of reward seeking (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</li>
+                <li>VTA GABA→DRN circuit regulates sleep/wakefulness (<a href="https://doi.org/10.3389/fnins.2022.877054" target="_blank">Rahaman et al., 2022</a>)</li>
+                <li>NAc input-defined circuits for reward vs aversion (<a href="https://doi.org/10.1038/s41467-022-33843-3" target="_blank">Zhou et al., 2022</a>)</li>
+            </ul>
 
-    <h3>6.3 Therapeutic Implications</h3>
-    <ul>
-        <li><strong>SSRIs:</strong> May work partly through downstream DA effects; combining optogenetic 5-HT activation with SSRI synergistically reduces responding (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</li>
-        <li><strong>SNRIs:</strong> Target both 5-HT and NE systems; NE-DA interactions in PFC affect cognition (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>)</li>
-        <li><strong>Atypical antipsychotics:</strong> Block 5-HT2A to disinhibit DA in PFC</li>
-        <li><strong>Novel targets:</strong> 5-HT2C modulators enhance goal-directed vigor via DA potentiation (<a href="https://doi.org/10.1523/JNEUROSCI.2088-17.2018" target="_blank">Bailey et al., 2018</a>)</li>
-    </ul>
+            <h3>Simultaneous Multi-Neurotransmitter Recording</h3>
+            <p>Recent advances allow monitoring of multiple monoamines simultaneously, revealing temporal coordination and region-specific interaction patterns. <a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank">Yang et al. (2023)</a> demonstrated simultaneous fiber photometry recording of DA, 5-HT, and NE in frontal cortex during a naturalistic fear-reward tradeoff task in mice.</p>
+        </div>
+    </section>
 
-    <hr>
+    <!-- Section 8: Future Directions -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-number">Section 8</div>
+            <h2>Research Gaps and Future Directions</h2>
 
-    <h2>7. Methodological Advances</h2>
+            <ol>
+                <li><strong>Real-time multi-neurotransmitter imaging</strong> — Most studies still measure one monoamine at a time</li>
+                <li><strong>Cell-type specificity</strong> — How do different 5-HT neuron subtypes interact with DA?</li>
+                <li><strong>Sex differences</strong> — Limited studies on female animals; estradiol significantly modulates all three systems (<a href="https://doi.org/10.3389/fnins.2024.1348551" target="_blank">Bendis et al., 2024</a>)</li>
+                <li><strong>Computational models</strong> — Integration of circuit-level findings into predictive frameworks</li>
+                <li><strong>Human translation</strong> — Bridging animal findings to human clinical applications</li>
+            </ol>
+        </div>
+    </section>
 
-    <h3>7.1 Genetically Encoded Sensors</h3>
-    <p><a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al. (2018)</a> developed <strong>dLight1</strong>, enabling ultrafast optical recording of dopamine dynamics. Similar sensors now exist for serotonin (GRAB-5-HT) and norepinephrine.</p>
+    <!-- Section 9: Papers -->
+    <section class="section-white" id="papers">
+        <div class="container">
+            <div class="section-number">Section 9</div>
+            <h2>Papers Added to Zotero Library</h2>
 
-    <h3>7.2 Optogenetics and Chemogenetics</h3>
-    <p>Cell-type-specific manipulation allows dissection of:</p>
-    <ul>
-        <li>DRN 5-HT neuron activation promotes patience (<a href="https://doi.org/10.1038/s41467-018-04496-y" target="_blank">Miyazaki et al., 2018</a>)</li>
-        <li>DRN→VTA pathway necessary for 5-HT inhibition of reward seeking (<a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank">Browne et al., 2018</a>)</li>
-        <li>VTA GABA→DRN circuit regulates sleep/wakefulness (<a href="https://doi.org/10.3389/fnins.2022.877054" target="_blank">Rahaman et al., 2022</a>)</li>
-        <li>NAc input-defined circuits for reward vs aversion (<a href="https://doi.org/10.1038/s41467-022-33843-3" target="_blank">Zhou et al., 2022</a>)</li>
-    </ul>
+            <div class="paper-section">
+                <div class="paper-category">
+                    <h4>Highly Cited Foundational Papers</h4>
 
-    <h3>7.3 Simultaneous Multi-Neurotransmitter Recording</h3>
-    <p>Recent advances allow monitoring of multiple monoamines simultaneously, revealing temporal coordination and region-specific interaction patterns. <a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank">Yang et al. (2023)</a> demonstrated simultaneous fiber photometry recording of DA, 5-HT, and NE in frontal cortex during a naturalistic fear-reward tradeoff task in mice.</p>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Patriarchi et al. (2018)</div>
+                            <div class="paper-desc">dLight1 dopamine sensor development</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="citation-count">921</span>
+                            <a href="https://doi.org/10.1126/science.aat4422" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-    <hr>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Hu (2016)</div>
+                            <div class="paper-desc">Reward and Aversion review</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="citation-count">261</span>
+                            <a href="https://doi.org/10.1146/annurev-neuro-070815-014106" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-    <h2>8. Research Gaps and Future Directions</h2>
-    <ol>
-        <li><strong>Real-time multi-neurotransmitter imaging</strong> — Most studies still measure one monoamine at a time</li>
-        <li><strong>Cell-type specificity</strong> — How do different 5-HT neuron subtypes interact with DA?</li>
-        <li><strong>Sex differences</strong> — Limited studies on female animals; estradiol significantly modulates all three systems (<a href="https://doi.org/10.3389/fnins.2024.1348551" target="_blank">Bendis et al., 2024</a>)</li>
-        <li><strong>Computational models</strong> — Integration of circuit-level findings into predictive frameworks</li>
-        <li><strong>Human translation</strong> — Bridging animal findings to human clinical applications</li>
-    </ol>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Zangen et al. (2001)</div>
+                            <div class="paper-desc">5-HT/DA interaction in depression</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="citation-count">177</span>
+                            <a href="https://doi.org/10.1007/s002130100746" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-    <hr>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Xing et al. (2016)</div>
+                            <div class="paper-desc">NE vs DA in prefrontal cortex</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="citation-count">174</span>
+                            <a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-    <h2>9. Papers Added to Zotero Library</h2>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Fischer & Ullsperger (2017)</div>
+                            <div class="paper-desc">5-HT/DA interplay for reward</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="citation-count">155</span>
+                            <a href="https://doi.org/10.3389/fnhum.2017.00484" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-    <div class="paper-list">
-        <h3>Highly Cited Foundational Papers</h3>
-        <ol>
-            <li>
-                <strong>Patriarchi et al. (2018)</strong> — dLight1 dopamine sensor development
-                <span class="citation-count">921 citations</span>
-                <a href="https://doi.org/10.1126/science.aat4422" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Hu (2016)</strong> — Reward and Aversion review
-                <span class="citation-count">261 citations</span>
-                <a href="https://doi.org/10.1146/annurev-neuro-070815-014106" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Zangen et al. (2001)</strong> — 5-HT/DA interaction in depression
-                <span class="citation-count">177 citations</span>
-                <a href="https://doi.org/10.1007/s002130100746" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Xing et al. (2016)</strong> — NE vs DA in prefrontal cortex
-                <span class="citation-count">174 citations</span>
-                <a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Fischer & Ullsperger (2017)</strong> — 5-HT/DA interplay for reward
-                <span class="citation-count">155 citations</span>
-                <a href="https://doi.org/10.3389/fnhum.2017.00484" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Peters et al. (2021)</strong> — DA, 5-HT, and endocannabinoids
-                <span class="citation-count">118 citations</span>
-                <a href="https://doi.org/10.1016/j.tins.2021.02.001" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-        </ol>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Peters et al. (2021)</div>
+                            <div class="paper-desc">DA, 5-HT, and endocannabinoids</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="citation-count">118</span>
+                            <a href="https://doi.org/10.1016/j.tins.2021.02.001" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+                </div>
 
-        <h3>Original Research - Circuit Mechanisms</h3>
-        <ol start="7">
-            <li>
-                <strong>Wang et al. (2019)</strong> — DR dual 5-HT/glutamate neurons drive reward via excitatory synapses on VTA DA neurons
-                <span class="tag">original</span>
-                <span class="citation-count">123 citations</span>
-                <a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Browne et al. (2018)</strong> — DRN 5-HT neurons inhibit operant responding via VTA (not NAc) inputs
-                <span class="tag">original</span>
-                <a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Miyazaki et al. (2018)</strong> — Reward probability and timing uncertainty alter 5-HT effect on patience
-                <span class="tag">original</span>
-                <a href="https://doi.org/10.1038/s41467-018-04496-y" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Rahaman et al. (2022)</strong> — VTA GABA neurons inhibit DRN 5-HT neurons
-                <span class="tag">original</span>
-                <a href="https://doi.org/10.3389/fnins.2022.877054" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Liu et al. (2025)</strong> — Striatal DA/5-HT crosstalk: largely independent with circuit-dependent interactions
-                <span class="tag">preprint</span>
-                <span class="tag">Lüscher lab</span>
-                <a href="https://doi.org/10.1101/2025.03.28.645922" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-        </ol>
+                <div class="paper-category">
+                    <h4>Original Research — Circuit Mechanisms</h4>
 
-        <h3>Reviews & Synthesis</h3>
-        <ol start="12">
-            <li>
-                <strong>De Deurwaerdère et al. (2021)</strong> — 5-HT/DA electrophysiology
-                <a href="https://doi.org/10.1016/bs.pbr.2021.02.001" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Azizi (2020)</strong> — Monoamines as network switches
-                <a href="https://doi.org/10.1177/1073858420974336" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-        </ol>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Wang et al. (2019)</div>
+                            <div class="paper-desc">DR dual 5-HT/glutamate neurons drive reward via excitatory synapses on VTA DA neurons</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">original</span>
+                            <span class="citation-count">123</span>
+                            <a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-        <h3>Recent Advances (2022-2025)</h3>
-        <ol start="14">
-            <li>
-                <strong>Zhou et al. (2022)</strong> — NAc input-defined circuits
-                <span class="tag">recent</span>
-                <a href="https://doi.org/10.1038/s41467-022-33843-3" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Liang et al. (2022)</strong> — Anhedonia in depression/schizophrenia
-                <span class="tag">recent</span>
-                <a href="https://doi.org/10.2147/NDT.S367839" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Spring & Nautiyal (2024)</strong> — Striatal serotonin and reward value
-                <span class="tag">recent</span>
-                <a href="https://doi.org/10.1523/JNEUROSCI.0602-24.2024" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Martin & Eshel (2024)</strong> — DA/5-HT in autism aggression
-                <span class="tag">recent</span>
-                <a href="https://doi.org/10.1016/j.jaacop.2024.01.010" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Bendis et al. (2024)</strong> — Estradiol effects on monoamines
-                <span class="tag">recent</span>
-                <a href="https://doi.org/10.3389/fnins.2024.1348551" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-            <li>
-                <strong>Yang et al. (2023)</strong> — Simultaneous DA/5-HT/NE dynamics in frontal cortex during fear-reward tradeoff
-                <span class="tag">preprint</span>
-                <span class="tag">multi-NT</span>
-                <a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank" class="doi-link">DOI ↗</a>
-            </li>
-        </ol>
-    </div>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Browne et al. (2018)</div>
+                            <div class="paper-desc">DRN 5-HT neurons inhibit operant responding via VTA (not NAc) inputs</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">original</span>
+                            <a href="https://doi.org/10.1038/s41386-018-0271-x" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-    <hr>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Miyazaki et al. (2018)</div>
+                            <div class="paper-desc">Reward probability and timing uncertainty alter 5-HT effect on patience</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">original</span>
+                            <a href="https://doi.org/10.1038/s41467-018-04496-y" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-    <h2>10. Conclusion</h2>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Rahaman et al. (2022)</div>
+                            <div class="paper-desc">VTA GABA neurons inhibit DRN 5-HT neurons</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">original</span>
+                            <a href="https://doi.org/10.3389/fnins.2022.877054" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
 
-    <div class="summary">
-        <p>The interactions between dopamine, serotonin, and norepinephrine represent a sophisticated neuromodulatory system that shapes virtually all aspects of animal behavior. Rather than operating as independent systems, these monoamines form an <strong>integrated network</strong> where:</p>
-        <ul>
-            <li><strong>Dopamine</strong> primarily encodes reward prediction errors and motivational drive (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>; <a href="https://doi.org/10.1523/JNEUROSCI.0602-24.2024" target="_blank">Spring & Nautiyal, 2024</a>)</li>
-            <li><strong>Serotonin</strong> encodes salience, regulates patience, and modulates dopamine function (<a href="https://doi.org/10.1038/s41467-018-04496-y" target="_blank">Miyazaki et al., 2018</a>; <a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
-            <li><strong>Norepinephrine</strong> regulates arousal, attention, and stress responses (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>; <a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank">Yang et al., 2023</a>)</li>
-        </ul>
-        <p>The <strong>cooperative and opponent dynamics</strong> between these systems allow for flexible behavioral adaptation. Dysfunction in these interactions underlies multiple psychiatric disorders, making them critical therapeutic targets.</p>
-    </div>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Liu et al. (2025)</div>
+                            <div class="paper-desc">Striatal DA/5-HT crosstalk: largely independent with circuit-dependent interactions</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">preprint</span>
+                            <a href="https://doi.org/10.1101/2025.03.28.645922" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+                </div>
 
-    <hr>
+                <div class="paper-category">
+                    <h4>Reviews & Synthesis</h4>
 
-    <h2>References</h2>
-    <p>See Zotero library "<strong>5-HT_DA</strong>" for complete reference list with DOIs and abstracts.</p>
-    <p><a href="https://www.zotero.org/groups/5-ht_da" target="_blank">→ Open Zotero Library</a></p>
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">De Deurwaerdère et al. (2021)</div>
+                            <div class="paper-desc">5-HT/DA electrophysiology</div>
+                        </div>
+                        <div class="paper-meta">
+                            <a href="https://doi.org/10.1016/bs.pbr.2021.02.001" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Azizi (2020)</div>
+                            <div class="paper-desc">Monoamines as network switches</div>
+                        </div>
+                        <div class="paper-meta">
+                            <a href="https://doi.org/10.1177/1073858420974336" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="paper-category">
+                    <h4>Recent Advances (2022–2025)</h4>
+
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Zhou et al. (2022)</div>
+                            <div class="paper-desc">NAc input-defined circuits</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">recent</span>
+                            <a href="https://doi.org/10.1038/s41467-022-33843-3" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Liang et al. (2022)</div>
+                            <div class="paper-desc">Anhedonia in depression/schizophrenia</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">recent</span>
+                            <a href="https://doi.org/10.2147/NDT.S367839" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Spring & Nautiyal (2024)</div>
+                            <div class="paper-desc">Striatal serotonin and reward value</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">recent</span>
+                            <a href="https://doi.org/10.1523/JNEUROSCI.0602-24.2024" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Martin & Eshel (2024)</div>
+                            <div class="paper-desc">DA/5-HT in autism aggression</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">recent</span>
+                            <a href="https://doi.org/10.1016/j.jaacop.2024.01.010" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Bendis et al. (2024)</div>
+                            <div class="paper-desc">Estradiol effects on monoamines</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">recent</span>
+                            <a href="https://doi.org/10.3389/fnins.2024.1348551" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+
+                    <div class="paper-item">
+                        <div class="paper-info">
+                            <div class="paper-title">Yang et al. (2023)</div>
+                            <div class="paper-desc">Simultaneous DA/5-HT/NE dynamics in frontal cortex during fear-reward tradeoff</div>
+                        </div>
+                        <div class="paper-meta">
+                            <span class="tag">preprint</span>
+                            <a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank" class="doi-link">DOI →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 10: Conclusion -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-number">Section 10</div>
+            <h2>Conclusion</h2>
+
+            <p style="font-size: 21px; line-height: 1.38; color: rgba(255,255,255,0.9); margin-bottom: 32px;">The interactions between dopamine, serotonin, and norepinephrine represent a sophisticated neuromodulatory system that shapes virtually all aspects of animal behavior. Rather than operating as independent systems, these monoamines form an <strong>integrated network</strong>:</p>
+
+            <ul class="conclusion-list">
+                <li><strong>Dopamine</strong> primarily encodes reward prediction errors and motivational drive (<a href="https://doi.org/10.1126/science.aat4422" target="_blank">Patriarchi et al., 2018</a>; <a href="https://doi.org/10.1523/JNEUROSCI.0602-24.2024" target="_blank">Spring & Nautiyal, 2024</a>)</li>
+                <li><strong>Serotonin</strong> encodes salience, regulates patience, and modulates dopamine function (<a href="https://doi.org/10.1038/s41467-018-04496-y" target="_blank">Miyazaki et al., 2018</a>; <a href="https://doi.org/10.1016/j.celrep.2019.01.014" target="_blank">Wang et al., 2019</a>)</li>
+                <li><strong>Norepinephrine</strong> regulates arousal, attention, and stress responses (<a href="https://doi.org/10.1016/j.brainres.2016.01.005" target="_blank">Xing et al., 2016</a>; <a href="https://doi.org/10.1101/2023.11.27.568929" target="_blank">Yang et al., 2023</a>)</li>
+            </ul>
+
+            <p style="margin-top: 32px;">The <strong>cooperative and opponent dynamics</strong> between these systems allow for flexible behavioral adaptation. Dysfunction in these interactions underlies multiple psychiatric disorders, making them critical therapeutic targets.</p>
+        </div>
+    </section>
+
+    <!-- References -->
+    <section class="section-light">
+        <div class="container" style="text-align: center;">
+            <h3 style="margin-top: 0;">References</h3>
+            <p>See Zotero library <strong>5-HT_DA</strong> for complete reference list with DOIs and abstracts.</p>
+            <a href="https://www.zotero.org/groups/5-ht_da" target="_blank" class="cta-primary" style="margin-top: 16px;">Open Zotero Library →</a>
+        </div>
+    </section>
 
     <footer>
-        <p><em>Report generated using PaperClaw literature review workflow with Semantic Scholar API</em></p>
-        <p>April 7, 2026</p>
+        <p>Report generated using PaperClaw literature review workflow with Semantic Scholar API</p>
+        <p>April 2026</p>
     </footer>
+
 </body>
 </html>
