@@ -286,27 +286,38 @@
         /* Circuit cards */
         .circuit-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin: 32px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 24px 0;
         }
         .circuit-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 28px;
-            box-shadow: var(--card-shadow);
+            background: var(--light-gray);
+            border-radius: 8px;
+            padding: 24px;
         }
         .circuit-card h4 {
             color: var(--near-black);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        .circuit-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
         }
         .circuit-card ul {
             margin: 0;
-            padding-left: 20px;
+            padding-left: 18px;
         }
         .circuit-card li {
             font-size: 14px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+        .circuit-card li strong {
+            color: var(--near-black);
+        }
+        .circuit-card a {
+            color: var(--link-blue);
         }
 
         /* Paper list */
@@ -433,6 +444,8 @@
             h3 { font-size: 19px; }
             .header { padding: 32px 24px; }
             .section-dark, .section-light, .section-white { padding: 40px 0; }
+        }
+        @media (max-width: 700px) {
             .circuit-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
@@ -546,7 +559,7 @@
     </section>
 
     <!-- Section 3: Circuit Mechanisms -->
-    <section class="section-dark">
+    <section class="section-white">
         <div class="container">
             <div class="section-number">Section 3</div>
             <h2>Circuit-Specific Mechanisms</h2>
