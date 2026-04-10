@@ -43,17 +43,17 @@
         .section-dark {
             background: var(--black);
             color: var(--white);
-            padding: 80px 0;
+            padding: 48px 0;
         }
         .section-light {
             background: var(--light-gray);
             color: var(--near-black);
-            padding: 80px 0;
+            padding: 48px 0;
         }
         .section-white {
             background: var(--white);
             color: var(--near-black);
-            padding: 60px 0;
+            padding: 48px 0;
         }
 
         .container {
@@ -65,39 +65,39 @@
         /* Typography - SF Pro Display for headings */
         h1 {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 56px;
+            font-size: 32px;
             font-weight: 600;
-            line-height: 1.07;
-            letter-spacing: -0.28px;
-            margin-bottom: 24px;
+            line-height: 1.14;
+            letter-spacing: -0.2px;
+            margin-bottom: 16px;
         }
 
         h2 {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 40px;
+            font-size: 28px;
             font-weight: 600;
-            line-height: 1.10;
+            line-height: 1.14;
             letter-spacing: normal;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         h3 {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 28px;
-            font-weight: 400;
-            line-height: 1.14;
-            letter-spacing: 0.196px;
-            margin-bottom: 16px;
-            margin-top: 40px;
+            font-size: 21px;
+            font-weight: 600;
+            line-height: 1.19;
+            letter-spacing: 0.1px;
+            margin-bottom: 12px;
+            margin-top: 32px;
         }
 
         h4 {
             font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-size: 21px;
+            font-size: 17px;
             font-weight: 600;
-            line-height: 1.19;
-            letter-spacing: 0.231px;
-            margin-bottom: 12px;
+            line-height: 1.24;
+            letter-spacing: 0px;
+            margin-bottom: 10px;
         }
 
         p {
@@ -122,61 +122,54 @@
             color: var(--link-blue-dark);
         }
 
-        /* Hero section */
-        .hero {
-            background: var(--black);
-            color: var(--white);
-            text-align: center;
-            padding: 120px 24px 100px;
+        /* Header section - simple and clean */
+        .header {
+            background: var(--light-gray);
+            color: var(--near-black);
+            padding: 48px 24px 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         }
-        .hero h1 {
-            max-width: 900px;
-            margin: 0 auto 24px;
+        .header h1 {
+            margin-bottom: 8px;
         }
-        .hero .subtitle {
-            font-size: 21px;
+        .header .subtitle {
+            font-size: 17px;
             font-weight: 400;
-            line-height: 1.19;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 700px;
-            margin: 0 auto 32px;
+            line-height: 1.47;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
         }
 
-        /* Meta info pills */
-        .meta-pills {
+        /* Meta info inline */
+        .meta-info {
             display: flex;
-            justify-content: center;
-            gap: 16px;
+            gap: 24px;
             flex-wrap: wrap;
-            margin-top: 40px;
-        }
-        .meta-pill {
-            background: var(--dark-surface);
-            padding: 12px 20px;
-            border-radius: 12px;
             font-size: 14px;
-            letter-spacing: -0.224px;
+            color: var(--text-tertiary);
+            margin-bottom: 20px;
         }
-        .meta-pill strong {
-            color: var(--white);
+        .meta-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .meta-pill span {
-            color: rgba(255, 255, 255, 0.6);
+        .meta-info strong {
+            color: var(--near-black);
         }
 
         /* CTA buttons */
         .cta-group {
             display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 32px;
+            gap: 12px;
+            flex-wrap: wrap;
         }
         .cta-primary {
             background: var(--apple-blue);
             color: var(--white);
-            padding: 12px 24px;
-            border-radius: 980px;
-            font-size: 17px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 400;
             text-decoration: none;
             display: inline-block;
@@ -187,40 +180,41 @@
         }
         .cta-secondary {
             background: transparent;
-            color: var(--link-blue-dark);
-            padding: 12px 24px;
-            border: 1px solid var(--link-blue-dark);
-            border-radius: 980px;
-            font-size: 17px;
+            color: var(--link-blue);
+            padding: 8px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            font-size: 14px;
             font-weight: 400;
             text-decoration: none;
             display: inline-block;
         }
         .cta-secondary:hover {
             text-decoration: none;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.04);
         }
 
         /* Key finding highlight */
         .key-finding {
-            background: var(--dark-surface);
-            border-radius: 12px;
-            padding: 32px;
-            margin: 40px 0;
-            text-align: left;
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-left: 3px solid var(--apple-blue);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin: 24px 0 0;
         }
         .key-finding-label {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
             color: var(--apple-blue);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
         .key-finding p {
-            font-size: 21px;
-            line-height: 1.38;
-            color: var(--white);
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-secondary);
             margin: 0;
         }
 
@@ -434,49 +428,43 @@
 
         /* Responsive */
         @media (max-width: 834px) {
-            h1 { font-size: 40px; }
-            h2 { font-size: 32px; }
-            h3 { font-size: 24px; }
-            .hero { padding: 80px 24px 60px; }
-            .section-dark, .section-light, .section-white { padding: 60px 0; }
+            h1 { font-size: 28px; }
+            h2 { font-size: 24px; }
+            h3 { font-size: 19px; }
+            .header { padding: 32px 24px; }
+            .section-dark, .section-light, .section-white { padding: 40px 0; }
             .circuit-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
-            h1 { font-size: 32px; }
-            h2 { font-size: 28px; }
-            .meta-pills { flex-direction: column; align-items: center; }
-            .cta-group { flex-direction: column; align-items: center; }
+            h1 { font-size: 24px; }
+            h2 { font-size: 21px; }
+            .meta-info { flex-direction: column; gap: 8px; }
+            .cta-group { flex-direction: column; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Header Section -->
+    <section class="header">
         <div class="container">
-            <h1>Dopamine, Serotonin, and Norepinephrine Interactions in Shaping Animal Behavior</h1>
-            <p class="subtitle">A comprehensive literature review synthesizing current understanding of how the three major monoamine neurotransmitters interact to regulate behavior.</p>
+            <h1>Monoamine Interactions in Animal Behavior</h1>
+            <p class="subtitle">How dopamine, serotonin, and norepinephrine interact to shape behavior and their cellular mechanisms</p>
+
+            <div class="meta-info">
+                <span><strong>4,800+</strong> papers analyzed</span>
+                <span><strong>21</strong> key papers saved</span>
+                <span>April 2026</span>
+            </div>
 
             <div class="cta-group">
                 <a href="https://www.zotero.org/groups/5-ht_da" target="_blank" class="cta-primary">View Zotero Library</a>
                 <a href="#papers" class="cta-secondary">Browse Papers</a>
             </div>
 
-            <div class="meta-pills">
-                <div class="meta-pill">
-                    <strong>4,800+</strong> <span>Papers Analyzed</span>
-                </div>
-                <div class="meta-pill">
-                    <strong>21</strong> <span>Key Papers Saved</span>
-                </div>
-                <div class="meta-pill">
-                    <strong>April 2026</strong> <span>Generated</span>
-                </div>
-            </div>
-
             <div class="key-finding">
                 <div class="key-finding-label">Key Finding</div>
-                <p>The additive effect of serotonin and dopamine conveys significant reward-related information that neither system alone can provide. This joint activity is essential for normal behavioral function and is disrupted in psychiatric disorders including depression, schizophrenia, and addiction.</p>
+                <p>The additive effect of serotonin and dopamine conveys significant reward-related information that neither system alone can provide. This joint activity is essential for normal behavioral function and is disrupted in psychiatric disorders.</p>
             </div>
         </div>
     </section>
