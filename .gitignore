@@ -1,0 +1,8 @@
+# Environment files with secrets
+.env
+
+# Working data directory
+data/
+
+# Docker volumes
+docker-data/

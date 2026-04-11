@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  openclaw:
+    image: alpine/openclaw:2026.3.7  # pinned to current stable version
+    container_name: paperclaw
+    volumes:
+      - ./skills:/workspace/skills:ro    # read-only skills
+      - ./data:/workspace/data           # working data directory
+    env_file:
+      - .env
+    environment:
+      - OPENCLAW_WORKSPACE=/workspace
+    stdin_open: true   # keep stdin open for interactive use
+    tty: true          # allocate a terminal
+    # network_mode: "none"  # uncomment for full isolation (no API access)
