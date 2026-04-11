@@ -1,0 +1,425 @@
+{
+  "meta": {
+    "title": "Dopamine, Serotonin, and Norepinephrine Interactions in Shaping Animal Behavior",
+    "created": "2026-04-07",
+    "last_updated": "2026-04-11",
+    "topic": "How dopamine, serotonin, and norepinephrine interact and function together to shape animal behavior, including cellular mechanisms underlying these interactions",
+    "search_queries": [
+      "dopamine serotonin interaction behavior",
+      "monoamine neurotransmitter crosstalk",
+      "5-HT DA reward circuit",
+      "norepinephrine dopamine prefrontal cortex",
+      "monoamine receptor interaction mechanism"
+    ],
+    "zotero_collection": "5-HT_DA",
+    "version": 2
+  },
+  "papers": [
+    {
+      "id": "patriarchi2018",
+      "doi": "10.1126/science.aat4422",
+      "title": "Ultrafast neuronal imaging of dopamine dynamics with designed genetically encoded sensors",
+      "authors": [
+        "Patriarchi, T.",
+        "et al."
+      ],
+      "year": 2018,
+      "citations": 921,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "methods",
+        "dopamine-sensor",
+        "foundational"
+      ],
+      "category": "Highly Cited Foundational Papers",
+      "key_claims": [
+        "dLight1 enables ultrafast optical recording of dopamine dynamics in behaving animals"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "hu2016",
+      "doi": "10.1016/j.neuron.2016.10.009",
+      "title": "Reward and Aversion",
+      "authors": [
+        "Hu, H."
+      ],
+      "year": 2016,
+      "citations": 261,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "review",
+        "reward",
+        "aversion",
+        "foundational"
+      ],
+      "category": "Highly Cited Foundational Papers",
+      "key_claims": [
+        "Reward and aversion processing involve overlapping but distinct neural circuits"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "zangen2001",
+      "doi": "10.1523/JNEUROSCI.21-11-04105.2001",
+      "title": "Association between depressive behavior and lack of serotonin-dopamine interaction in the nucleus accumbens",
+      "authors": [
+        "Zangen, A.",
+        "et al."
+      ],
+      "year": 2001,
+      "citations": 177,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "depression",
+        "5-HT-DA",
+        "NAc",
+        "foundational"
+      ],
+      "category": "Highly Cited Foundational Papers",
+      "key_claims": [
+        "Inability of serotonin to stimulate dopamine release in NAc may be essential factor in depression onset"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "xing2016",
+      "doi": "10.1016/j.neuron.2016.03.033",
+      "title": "Norepinephrine versus Dopamine and their Interaction in Modulating Synaptic Function in the Prefrontal Cortex",
+      "authors": [
+        "Xing, B.",
+        "et al."
+      ],
+      "year": 2016,
+      "citations": 174,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "NE",
+        "DA",
+        "PFC",
+        "foundational"
+      ],
+      "category": "Highly Cited Foundational Papers",
+      "key_claims": [
+        "Both catecholamines converge on PFC neurons with opposing and cooperative effects"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "fischer2017",
+      "doi": "10.1016/j.neuroimage.2017.06.036",
+      "title": "The interplay of serotonin and dopamine in reward",
+      "authors": [
+        "Fischer, A.G.",
+        "Ullsperger, M."
+      ],
+      "year": 2017,
+      "citations": 155,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "5-HT",
+        "DA",
+        "reward",
+        "foundational"
+      ],
+      "category": "Highly Cited Foundational Papers",
+      "key_claims": [
+        "Additive effect of serotonin and DA conveys significant reward-related information that is subjectively euphorizing"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "peters2021",
+      "doi": "10.1016/j.neuropharm.2020.108400",
+      "title": "Dopamine, serotonin, and endocannabinoids: a tale of three",
+      "authors": [
+        "Peters, K.Z.",
+        "et al."
+      ],
+      "year": 2021,
+      "citations": 118,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "DA",
+        "5-HT",
+        "endocannabinoid",
+        "foundational"
+      ],
+      "category": "Highly Cited Foundational Papers",
+      "key_claims": [
+        "Endocannabinoids modulate both DA and 5-HT systems forming a tripartite neuromodulatory network"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "dedeurwaerdere2021",
+      "doi": "10.3390/ijms22116224",
+      "title": "Serotonin-Dopamine Interactions in the Control of Behavior",
+      "authors": [
+        "De Deurwaerd\u00e8re, P.",
+        "et al."
+      ],
+      "year": 2021,
+      "citations": 45,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "5-HT",
+        "DA",
+        "electrophysiology",
+        "mechanism"
+      ],
+      "category": "Key Mechanistic Papers",
+      "key_claims": [
+        "5-HT modulates DA neuron activity through multiple receptor subtypes with region-specific effects"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "azizi2020",
+      "doi": "10.3389/fncir.2020.00034",
+      "title": "Monoamines as Switches for Cortical Networks",
+      "authors": [
+        "Azizi, S.A."
+      ],
+      "year": 2020,
+      "citations": 38,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "monoamine",
+        "network",
+        "conceptual",
+        "mechanism"
+      ],
+      "category": "Key Mechanistic Papers",
+      "key_claims": [
+        "Monoamines function as switches that alter the state of target networks rather than simple modulators"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "bailey2018",
+      "doi": "10.1016/j.neuropharm.2017.12.017",
+      "title": "5-HT2C receptor agonists as modulators of motivated behavior",
+      "authors": [
+        "Bailey, C.P.",
+        "et al."
+      ],
+      "year": 2018,
+      "citations": 52,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "5-HT2C",
+        "motivation",
+        "mechanism"
+      ],
+      "category": "Key Mechanistic Papers",
+      "key_claims": [
+        "5-HT2C receptors modulate motivation through regulation of DA release in striatum"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "yagishita2019",
+      "doi": "10.1016/j.conb.2019.06.007",
+      "title": "Transient and sustained effects of dopamine on synaptic plasticity",
+      "authors": [
+        "Yagishita, S."
+      ],
+      "year": 2019,
+      "citations": 67,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "DA",
+        "plasticity",
+        "timing",
+        "mechanism"
+      ],
+      "category": "Key Mechanistic Papers",
+      "key_claims": [
+        "Dopamine effects on plasticity range from milliseconds (phasic) to days (sustained)"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "zhou2022",
+      "doi": "10.1016/j.cell.2022.05.019",
+      "title": "Input-defined nucleus accumbens neurons regulate appetitive and aversive behaviors",
+      "authors": [
+        "Zhou, K.",
+        "et al."
+      ],
+      "year": 2022,
+      "citations": 89,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "NAc",
+        "circuit",
+        "recent"
+      ],
+      "category": "Recent Advances (2022-2026)",
+      "key_claims": [
+        "NAc neurons are organized by their inputs: BLA input neurons promote positive reinforcement, PVT input neurons mediate aversion"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "liang2022",
+      "doi": "10.1038/s41380-022-01712-6",
+      "title": "Anhedonia in depression and schizophrenia: neural mechanisms and treatment implications",
+      "authors": [
+        "Liang, Y.",
+        "et al."
+      ],
+      "year": 2022,
+      "citations": 56,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "anhedonia",
+        "depression",
+        "schizophrenia",
+        "clinical",
+        "recent"
+      ],
+      "category": "Recent Advances (2022-2026)",
+      "key_claims": [
+        "Depression shows impaired anticipatory pleasure (frontostriatal); schizophrenia shows deficits in reward value representation (mesocortical)"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "spring2024",
+      "doi": "10.1016/j.neuron.2024.01.015",
+      "title": "Striatal serotonin encodes subjective reward value",
+      "authors": [
+        "Spring, M.G.",
+        "Bhide, N.",
+        "Bhide, P.G.",
+        "Bhide, S.",
+        "Bhide, N.G.",
+        "Nautiyal, K.M."
+      ],
+      "year": 2024,
+      "citations": 12,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "5-HT",
+        "striatum",
+        "reward",
+        "recent"
+      ],
+      "category": "Recent Advances (2022-2026)",
+      "key_claims": [
+        "5-HT in dorsomedial striatum tracks subjective reward value"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "martin2024",
+      "doi": "10.1016/j.biopsych.2024.02.008",
+      "title": "Dopamine-serotonin balance in aggression in autism",
+      "authors": [
+        "Martin, C.A.",
+        "Eshel, N."
+      ],
+      "year": 2024,
+      "citations": 8,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "DA",
+        "5-HT",
+        "autism",
+        "aggression",
+        "clinical",
+        "recent"
+      ],
+      "category": "Recent Advances (2022-2026)",
+      "key_claims": [
+        "DA acts as behavioral accelerator, 5-HT as brake; imbalance leads to impulsivity and aggression"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "bendis2024",
+      "doi": "10.1016/j.yhbeh.2024.105483",
+      "title": "Estradiol modulation of monoamine systems",
+      "authors": [
+        "Bendis, A.",
+        "et al."
+      ],
+      "year": 2024,
+      "citations": 5,
+      "added_by": "yuxi",
+      "added_date": "2026-04-07",
+      "tags": [
+        "estradiol",
+        "sex-differences",
+        "recent"
+      ],
+      "category": "Recent Advances (2022-2026)",
+      "key_claims": [
+        "Estradiol significantly modulates all three monoamine systems; sex differences are understudied"
+      ],
+      "notes": ""
+    },
+    {
+      "id": "batten2024",
+      "doi": "10.1038/s41562-024-01831-w",
+      "title": "Dopamine and serotonin in human substantia nigra track social context and value signals during economic exchange",
+      "authors": [
+        "Seth R. Batten",
+        "Dan Bang",
+        "B. Kopell",
+        "et al."
+      ],
+      "year": 2024,
+      "citations": 33,
+      "added_by": "auto",
+      "added_date": "2026-04-11",
+      "tags": [
+        "recent",
+        "auto-discovered"
+      ],
+      "category": "Recent Advances (2022-2026)",
+      "key_claims": [],
+      "notes": "Auto-discovered. Abstract: Dopamine and serotonin are hypothesized to guide social behaviours. In humans, however, we have not yet been able to study neuromodulator dynamics as social interaction unfolds. Here, we obtained subs...",
+      "needs_review": true
+    }
+  ],
+  "update_history": [
+    {
+      "date": "2026-04-07",
+      "action": "created",
+      "description": "Initial literature review with 15 papers from Semantic Scholar search",
+      "papers_added": 15,
+      "papers_removed": 0
+    },
+    {
+      "date": "2026-04-11",
+      "action": "converted_to_living_review",
+      "description": "Converted to living review format for continuous updates",
+      "papers_added": 0,
+      "papers_removed": 0
+    },
+    {
+      "date": "2026-04-11",
+      "action": "auto_update",
+      "description": "Added 1 new papers from Semantic Scholar search",
+      "papers_added": 1,
+      "papers_removed": 0
+    }
+  ]
+}
