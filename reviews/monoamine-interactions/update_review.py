@@ -24,6 +24,10 @@ load_dotenv(Path(__file__).parent.parent.parent / ".env")
 SEMANTIC_SCHOLAR_API_KEY = os.getenv("SEMANTIC_SCHOLAR_API_KEY")
 REVIEW_FILE = Path(__file__).parent / "review.json"
 S2_API_BASE = "https://api.semanticscholar.org/graph/v1"
+OPENALEX_API_BASE = "https://api.openalex.org"
+
+# Cache for journal IF lookups to avoid repeated API calls
+_journal_if_cache = {}
 
 
 def load_review():
@@ -41,6 +45,81 @@ def save_review(review_data):
 def get_existing_dois(review_data):
     """Get set of DOIs already in the review."""
     return {p.get("doi", "").lower() for p in review_data["papers"] if p.get("doi")}
+
+
+def get_journal_impact_factor(doi):
+    """
+    Get journal Impact Factor (2yr_mean_citedness) from OpenAlex for a paper's DOI.
+
+    Returns (impact_factor, journal_name) or (None, None) if not found.
+    """
+    import time
+
+    # Check cache first
+    if doi in _journal_if_cache:
+        return _journal_if_cache[doi]
+
+    try:
+        # Query OpenAlex for the work by DOI
+        response = requests.get(
+            f"{OPENALEX_API_BASE}/works/doi:{doi}",
+            params={"select": "primary_location"},
+            headers={"User-Agent": "PaperClaw/1.0 (mailto:paperclaw@example.com)"},
+            timeout=10
+        )
+
+        if response.status_code != 200:
+            _journal_if_cache[doi] = (None, None)
+            return None, None
+
+        work_data = response.json()
+        primary_location = work_data.get("primary_location", {})
+
+        if not primary_location:
+            _journal_if_cache[doi] = (None, None)
+            return None, None
+
+        source = primary_location.get("source", {})
+        if not source:
+            _journal_if_cache[doi] = (None, None)
+            return None, None
+
+        source_id = source.get("id")
+        journal_name = source.get("display_name", "Unknown")
+
+        if not source_id:
+            _journal_if_cache[doi] = (None, journal_name)
+            return None, journal_name
+
+        # Extract the source ID (e.g., "S64187185" from "https://openalex.org/S64187185")
+        source_short_id = source_id.split("/")[-1] if "/" in source_id else source_id
+
+        # Rate limiting for OpenAlex
+        time.sleep(0.1)
+
+        # Get the source details including impact factor from the API endpoint
+        source_response = requests.get(
+            f"{OPENALEX_API_BASE}/sources/{source_short_id}",
+            params={"select": "display_name,summary_stats"},
+            headers={"User-Agent": "PaperClaw/1.0 (mailto:paperclaw@example.com)"},
+            timeout=10
+        )
+
+        if source_response.status_code != 200:
+            _journal_if_cache[doi] = (None, journal_name)
+            return None, journal_name
+
+        source_data = source_response.json()
+        summary_stats = source_data.get("summary_stats", {})
+        impact_factor = summary_stats.get("2yr_mean_citedness")
+
+        _journal_if_cache[doi] = (impact_factor, journal_name)
+        return impact_factor, journal_name
+
+    except Exception as e:
+        print(f"    Warning: Could not get IF for {doi}: {e}")
+        _journal_if_cache[doi] = (None, None)
+        return None, None
 
 
 def search_semantic_scholar(query, year_from=None, limit=50):
@@ -70,8 +149,16 @@ def search_semantic_scholar(query, year_from=None, limit=50):
         return []
 
 
-def filter_new_papers(papers, existing_dois, min_citations=0):
-    """Filter papers to only include new, relevant ones."""
+def filter_new_papers(papers, existing_dois, min_citations=0, min_if=None):
+    """Filter papers to only include new, relevant ones.
+
+    Args:
+        papers: List of papers from Semantic Scholar search
+        existing_dois: Set of DOIs already in the review
+        min_citations: Minimum citation count for inclusion
+        min_if: Minimum journal Impact Factor for inclusion (uses OpenAlex 2yr_mean_citedness)
+    """
+    import time
     new_papers = []
 
     for paper in papers:
@@ -86,6 +173,19 @@ def filter_new_papers(papers, existing_dois, min_citations=0):
         if citations < min_citations:
             continue
 
+        # Check journal Impact Factor if threshold is set
+        impact_factor = None
+        journal_name = None
+        if min_if is not None:
+            impact_factor, journal_name = get_journal_impact_factor(doi)
+            if impact_factor is None:
+                print(f"      Skipping (no IF data): {paper.get('title', '')[:50]}...")
+                continue
+            if impact_factor < min_if:
+                print(f"      Skipping (IF {impact_factor:.1f} < {min_if}): {journal_name}")
+                continue
+            time.sleep(0.1)  # Rate limiting
+
         new_papers.append({
             "paperId": paper.get("paperId"),
             "doi": doi,
@@ -95,6 +195,8 @@ def filter_new_papers(papers, existing_dois, min_citations=0):
             "citations": citations,
             "abstract": paper.get("abstract", "")[:500] if paper.get("abstract") else "",
             "publication_date": paper.get("publicationDate"),
+            "impact_factor": impact_factor,
+            "journal": journal_name,
         })
 
     # Sort by citations (descending)
@@ -106,7 +208,7 @@ def format_paper_for_review(paper, added_by="auto"):
     year = paper.get("year", datetime.now().year)
     first_author = paper["authors"][0].split()[-1].lower() if paper["authors"] else "unknown"
 
-    return {
+    result = {
         "id": f"{first_author}{year}",
         "doi": paper["doi"],
         "title": paper["title"],
@@ -121,6 +223,14 @@ def format_paper_for_review(paper, added_by="auto"):
         "notes": f"Auto-discovered. Abstract: {paper['abstract'][:200]}..." if paper["abstract"] else "Auto-discovered. Review for relevance.",
         "needs_review": True
     }
+
+    # Add journal info if available
+    if paper.get("journal"):
+        result["journal"] = paper["journal"]
+    if paper.get("impact_factor") is not None:
+        result["impact_factor"] = round(paper["impact_factor"], 2)
+
+    return result
 
 
 def normalize_title(title):
@@ -237,7 +347,7 @@ def verify_all_dois(review_data):
     return errors
 
 
-def update_review(dry_run=False, since_date=None, min_citations=5):
+def update_review(dry_run=False, since_date=None, min_citations=5, min_if=None):
     """Main update function."""
     print("=" * 60)
     print("Living Review Updater - Monoamine Interactions")
@@ -256,6 +366,8 @@ def update_review(dry_run=False, since_date=None, min_citations=5):
         year_from = int(last_update[:4])
 
     print(f"Searching for papers from {year_from} onwards...")
+    if min_if is not None:
+        print(f"Filtering by journal Impact Factor >= {min_if} (via OpenAlex)")
 
     # Search using configured queries
     all_new_papers = []
@@ -264,8 +376,11 @@ def update_review(dry_run=False, since_date=None, min_citations=5):
     for query in queries:
         print(f"\n  Searching: '{query}'...")
         papers = search_semantic_scholar(query, year_from=year_from, limit=30)
-        new_papers = filter_new_papers(papers, existing_dois, min_citations=min_citations)
-        print(f"    Found {len(new_papers)} new papers (>= {min_citations} citations)")
+        new_papers = filter_new_papers(papers, existing_dois, min_citations=min_citations, min_if=min_if)
+        filter_desc = f">= {min_citations} citations"
+        if min_if is not None:
+            filter_desc += f", IF >= {min_if}"
+        print(f"    Found {len(new_papers)} new papers ({filter_desc})")
         all_new_papers.extend(new_papers)
 
     # Deduplicate by DOI
@@ -289,7 +404,8 @@ def update_review(dry_run=False, since_date=None, min_citations=5):
 
     print("\nTop new papers:")
     for i, paper in enumerate(unique_new_papers[:10], 1):
-        print(f"  {i}. [{paper['citations']} cites] {paper['title'][:60]}...")
+        if_str = f", IF={paper['impact_factor']:.1f}" if paper.get('impact_factor') else ""
+        print(f"  {i}. [{paper['citations']} cites{if_str}] {paper['title'][:60]}...")
         print(f"     DOI: {paper['doi']}")
 
     if dry_run:
@@ -327,6 +443,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Show what would be added without making changes")
     parser.add_argument("--since", type=str, help="Search for papers since this date (YYYY-MM-DD)")
     parser.add_argument("--min-citations", type=int, default=5, help="Minimum citations for inclusion (default: 5)")
+    parser.add_argument("--min-if", type=float, help="Minimum journal Impact Factor for inclusion (uses OpenAlex 2yr_mean_citedness)")
     parser.add_argument("--verify", action="store_true", help="Verify all DOIs in the review are correct")
     args = parser.parse_args()
 
@@ -334,7 +451,7 @@ def main():
         review = load_review()
         verify_all_dois(review)
     else:
-        update_review(dry_run=args.dry_run, since_date=args.since, min_citations=args.min_citations)
+        update_review(dry_run=args.dry_run, since_date=args.since, min_citations=args.min_citations, min_if=args.min_if)
 
 
 if __name__ == "__main__":

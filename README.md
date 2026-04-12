@@ -59,6 +59,9 @@ python reviews/monoamine-interactions/update_review.py --dry-run
 # Add new papers
 python reviews/monoamine-interactions/update_review.py
 
+# Filter by minimum journal Impact Factor (uses OpenAlex 2yr_mean_citedness)
+python reviews/monoamine-interactions/update_review.py --min-if 5
+
 # Regenerate HTML
 python reviews/monoamine-interactions/generate_report.py
 
