@@ -21,6 +21,50 @@ CA: 8Sr83QJW12HMnxvg7HzHZvdFfj6G8j7AwzKmyBfRpump
 
 ---
 
+## Fork Customizations
+
+This fork includes customizations for conducting neuroscience literature reviews with automated updates.
+
+### Live Literature Reviews
+
+| Review | Description | Link |
+|--------|-------------|------|
+| **Monoamine Interactions v1** | Static, detailed review of dopamine, serotonin, and norepinephrine interactions in animal behavior (15 papers) | [View Report](https://yuxi-yuxi.github.io/PaperClaw/literature_review_monoamine_interactions_v1.html) |
+| **Monoamine Interactions (Living)** | Auto-updated living review that discovers new papers via Semantic Scholar | [View Report](https://yuxi-yuxi.github.io/PaperClaw/literature_review_monoamine_interactions.html) |
+
+### Added Features
+
+- **Living Review System** ([reviews/monoamine-interactions/](reviews/monoamine-interactions/))
+  - `review.json` — Structured paper database with metadata, claims, and tags
+  - `update_review.py` — Auto-discovers new papers from Semantic Scholar
+  - `generate_report.py` — Regenerates HTML report from JSON data
+  - Update history tracking and version control
+
+- **Apple-Inspired Design System** ([DESIGN.md](DESIGN.md))
+  - SF Pro typography, alternating dark/light sections
+  - Responsive card layouts with citation counts
+  - Clickable DOI links for all papers
+
+- **Literature Review Standards** ([CLAUDE.md](CLAUDE.md))
+  - Guidelines for paper selection (original research vs reviews)
+  - Citation requirements for every claim
+  - DOI verification workflow
+
+### Updating the Living Review
+
+```bash
+# Check for new papers (dry run)
+python reviews/monoamine-interactions/update_review.py --dry-run
+
+# Add new papers
+python reviews/monoamine-interactions/update_review.py
+
+# Regenerate HTML
+python reviews/monoamine-interactions/generate_report.py
+```
+
+---
+
 ## Overview
 
 PaperClaw packages **27 production-ready `SKILL.md` files** for academic research team workflows across literature management, synthesis, collaboration, manuscript output, and research tracking. Each skill teaches an OpenClaw-compatible agent **when** to use a capability, **how** to invoke it, and **what kind of output** to produce.
@@ -175,50 +219,6 @@ Every `SKILL.md` follows a consistent structure:
 | [`wu-yc/LabClaw`](https://github.com/wu-yc/LabClaw) | Biomedical execution toolkit — 206 skills for biology, pharma, medicine, and literature search. PaperClaw is the collaboration and synthesis complement. |
 | [`openclaw/openclaw`](https://github.com/openclaw/openclaw) | The main runtime that loads workspace skills and provides the agent workspace model PaperClaw is designed for. |
 | [`mims-harvard/ToolUniverse`](https://github.com/mims-harvard/ToolUniverse) | Large AI-scientist tool ecosystem. Several PaperClaw skills integrate with ToolUniverse's literature search tools. |
-
----
-
-## Fork Customizations
-
-This fork includes customizations for conducting neuroscience literature reviews with automated updates.
-
-### Live Literature Reviews
-
-| Review | Description | Link |
-|--------|-------------|------|
-| **Monoamine Interactions v1** | Static, detailed review of dopamine, serotonin, and norepinephrine interactions in animal behavior (15 papers) | [View Report](https://yuxi-yuxi.github.io/PaperClaw/literature_review_monoamine_interactions_v1.html) |
-| **Monoamine Interactions (Living)** | Auto-updated living review that discovers new papers via Semantic Scholar | [View Report](https://yuxi-yuxi.github.io/PaperClaw/literature_review_monoamine_interactions.html) |
-
-### Added Features
-
-- **Living Review System** ([reviews/monoamine-interactions/](reviews/monoamine-interactions/))
-  - `review.json` — Structured paper database with metadata, claims, and tags
-  - `update_review.py` — Auto-discovers new papers from Semantic Scholar
-  - `generate_report.py` — Regenerates HTML report from JSON data
-  - Update history tracking and version control
-
-- **Apple-Inspired Design System** ([DESIGN.md](DESIGN.md))
-  - SF Pro typography, alternating dark/light sections
-  - Responsive card layouts with citation counts
-  - Clickable DOI links for all papers
-
-- **Literature Review Standards** ([CLAUDE.md](CLAUDE.md))
-  - Guidelines for paper selection (original research vs reviews)
-  - Citation requirements for every claim
-  - DOI verification workflow
-
-### Updating the Living Review
-
-```bash
-# Check for new papers (dry run)
-python reviews/monoamine-interactions/update_review.py --dry-run
-
-# Add new papers
-python reviews/monoamine-interactions/update_review.py
-
-# Regenerate HTML
-python reviews/monoamine-interactions/generate_report.py
-```
 
 ---
 
