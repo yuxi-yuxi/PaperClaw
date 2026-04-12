@@ -123,8 +123,33 @@ def format_paper_for_review(paper, added_by="auto"):
     }
 
 
-def verify_doi(doi, expected_title):
-    """Verify a DOI resolves to the expected paper."""
+def normalize_title(title):
+    """Normalize title for comparison: lowercase, remove punctuation, extra spaces."""
+    import re
+    title = title.lower()
+    title = re.sub(r'[^\w\s]', '', title)  # Remove punctuation
+    title = re.sub(r'\s+', ' ', title).strip()  # Normalize whitespace
+    return title
+
+
+def title_similarity(title1, title2):
+    """Calculate word overlap ratio between two titles."""
+    words1 = set(normalize_title(title1).split())
+    words2 = set(normalize_title(title2).split())
+    if not words1 or not words2:
+        return 0.0
+    intersection = words1 & words2
+    union = words1 | words2
+    return len(intersection) / len(union)
+
+
+def verify_doi(doi, expected_title, strict=True):
+    """
+    Verify a DOI resolves to the expected paper.
+
+    Uses word overlap similarity (Jaccard index) for robust matching.
+    Requires >50% word overlap to consider a match.
+    """
     headers = {"x-api-key": SEMANTIC_SCHOLAR_API_KEY} if SEMANTIC_SCHOLAR_API_KEY else {}
 
     try:
@@ -137,15 +162,19 @@ def verify_doi(doi, expected_title):
         if response.status_code == 200:
             data = response.json()
             actual_title = data.get("title", "")
-            # Check if first 20 chars of expected title match (case insensitive)
-            expected_prefix = expected_title.lower()[:20]
-            actual_lower = actual_title.lower()
-            if expected_prefix in actual_lower:
+
+            # Use word overlap similarity instead of prefix matching
+            similarity = title_similarity(expected_title, actual_title)
+
+            # Require >50% word overlap for a match
+            if similarity > 0.5:
                 return True, actual_title, None
             else:
-                return False, actual_title, "Title mismatch"
+                return False, actual_title, f"Title mismatch (similarity: {similarity:.0%})"
         elif response.status_code == 404:
             return False, None, "DOI not found"
+        elif response.status_code == 429:
+            return False, None, "Rate limited (429) - retry later"
         else:
             return False, None, f"API error: {response.status_code}"
     except Exception as e:

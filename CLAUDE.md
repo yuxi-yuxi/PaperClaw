@@ -37,16 +37,24 @@ PaperClaw is used for conducting comprehensive literature reviews using Semantic
    ```
    GET https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}?fields=title,authors,year
    ```
-2. Compare the returned title with the expected title (first 20 characters, case-insensitive)
+2. Compare the returned title with the expected title using **Jaccard similarity (word overlap)**:
+   - Normalize both titles: lowercase, remove punctuation, collapse whitespace
+   - Calculate word intersection / word union ratio
+   - Require >50% word overlap to consider a match
+   - **WARNING:** Do NOT use prefix matching (e.g., comparing first 20 characters) — this is unreliable and will miss mismatches where titles share common starting words
+
 3. For living reviews, run periodic verification:
    ```bash
    python reviews/monoamine-interactions/update_review.py --verify
    ```
+
 4. Common DOI issues to watch for:
    - DOI copied from wrong paper in search results
    - DOI changed during journal transfer
    - Preprint DOI vs published DOI mismatch
    - Character encoding issues in DOI strings
+
+**Lesson Learned (2026-04-11):** Prefix-based title matching failed to detect mismatches like "An Update on the Role of Serotonin..." vs "The interplay of serotonin..." because both started with common words. Jaccard similarity is more robust because it considers the full title content.
 
 ### 4. Shareable Format
 | User Request | Action Taken |
