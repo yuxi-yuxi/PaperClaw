@@ -63,8 +63,8 @@
     },
     {
       "id": "zangen2001",
-      "doi": "10.1523/JNEUROSCI.21-11-04105.2001",
-      "title": "Association between depressive behavior and lack of serotonin-dopamine interaction in the nucleus accumbens",
+      "doi": "10.1007/s002130100746",
+      "title": "Association between depressive behavior and absence of serotonin-dopamine interaction in the nucleus accumbens",
       "authors": [
         "Zangen, A.",
         "et al."
@@ -87,8 +87,8 @@
     },
     {
       "id": "xing2016",
-      "doi": "10.1016/j.neuron.2016.03.033",
-      "title": "Norepinephrine versus Dopamine and their Interaction in Modulating Synaptic Function in the Prefrontal Cortex",
+      "doi": "10.1016/j.brainres.2016.01.005",
+      "title": "Norepinephrine versus dopamine and their interaction in modulating synaptic function in the prefrontal cortex",
       "authors": [
         "Xing, B.",
         "et al."
@@ -135,8 +135,8 @@
     },
     {
       "id": "peters2021",
-      "doi": "10.1016/j.neuropharm.2020.108400",
-      "title": "Dopamine, serotonin, and endocannabinoids: a tale of three",
+      "doi": "10.1016/j.tins.2021.02.001",
+      "title": "Modulating the Neuromodulators: Dopamine, Serotonin, and the Endocannabinoid System",
       "authors": [
         "Peters, K.Z.",
         "et al."
@@ -159,8 +159,8 @@
     },
     {
       "id": "dedeurwaerdere2021",
-      "doi": "10.3390/ijms22116224",
-      "title": "Serotonin-Dopamine Interactions in the Control of Behavior",
+      "doi": "10.1016/bs.pbr.2021.02.001",
+      "title": "Serotonin/dopamine interaction: Electrophysiological and neurochemical evidence",
       "authors": [
         "De Deurwaerd\u00e8re, P.",
         "et al."
@@ -183,8 +183,8 @@
     },
     {
       "id": "azizi2020",
-      "doi": "10.3389/fncir.2020.00034",
-      "title": "Monoamines as Switches for Cortical Networks",
+      "doi": "10.1177/1073858420974336",
+      "title": "Monoamines: Dopamine, Norepinephrine, and Serotonin, Beyond Modulation, Switches That Alter the State of Target Networks",
       "authors": [
         "Azizi, S.A."
       ],
@@ -205,14 +205,14 @@
       "notes": ""
     },
     {
-      "id": "bailey2018",
-      "doi": "10.1016/j.neuropharm.2017.12.017",
-      "title": "5-HT2C receptor agonists as modulators of motivated behavior",
+      "id": "bailey2015",
+      "doi": "10.1021/acschemneuro.5b00025",
+      "title": "Therapeutic Potential of 5-HT2C Receptor Agonists for Addictive Disorders",
       "authors": [
-        "Bailey, C.P.",
-        "et al."
+        "Higgins, G.A.",
+        "Fletcher, P.J."
       ],
-      "year": 2018,
+      "year": 2015,
       "citations": 52,
       "added_by": "yuxi",
       "added_date": "2026-04-07",
@@ -229,8 +229,8 @@
     },
     {
       "id": "yagishita2019",
-      "doi": "10.1016/j.conb.2019.06.007",
-      "title": "Transient and sustained effects of dopamine on synaptic plasticity",
+      "doi": "10.1111/pcn.12942",
+      "title": "Transient and sustained effects of dopamine and serotonin signaling in learning",
       "authors": [
         "Yagishita, S."
       ],
@@ -252,8 +252,8 @@
     },
     {
       "id": "zhou2022",
-      "doi": "10.1016/j.cell.2022.05.019",
-      "title": "Input-defined nucleus accumbens neurons regulate appetitive and aversive behaviors",
+      "doi": "10.1038/s41467-022-33843-3",
+      "title": "Reward and aversion processing by input-defined parallel nucleus accumbens circuits",
       "authors": [
         "Zhou, K.",
         "et al."
@@ -275,8 +275,8 @@
     },
     {
       "id": "liang2022",
-      "doi": "10.1038/s41380-022-01712-6",
-      "title": "Anhedonia in depression and schizophrenia: neural mechanisms and treatment implications",
+      "doi": "10.2147/NDT.S367839",
+      "title": "Anhedonia in Depression and Schizophrenia: Brain Reward and Aversion Circuits",
       "authors": [
         "Liang, Y.",
         "et al."
@@ -300,14 +300,11 @@
     },
     {
       "id": "spring2024",
-      "doi": "10.1016/j.neuron.2024.01.015",
-      "title": "Striatal serotonin encodes subjective reward value",
+      "doi": "10.1523/JNEUROSCI.0602-24.2024",
+      "title": "Striatal Serotonin Release Signals Reward Value",
       "authors": [
         "Spring, M.G.",
         "Bhide, N.",
-        "Bhide, P.G.",
-        "Bhide, S.",
-        "Bhide, N.G.",
         "Nautiyal, K.M."
       ],
       "year": 2024,
@@ -328,11 +325,11 @@
     },
     {
       "id": "martin2024",
-      "doi": "10.1016/j.biopsych.2024.02.008",
-      "title": "Dopamine-serotonin balance in aggression in autism",
+      "doi": "10.1016/j.jaacop.2024.01.010",
+      "title": "Review: Dopamine, Serotonin, and the Translational Neuroscience of Aggression in Children and Adolescents",
       "authors": [
-        "Martin, C.A.",
-        "Eshel, N."
+        "Martin, H.",
+        "Choi, J."
       ],
       "year": 2024,
       "citations": 8,
@@ -353,25 +350,25 @@
       "notes": ""
     },
     {
-      "id": "bendis2024",
-      "doi": "10.1016/j.yhbeh.2024.105483",
-      "title": "Estradiol modulation of monoamine systems",
+      "id": "hilz2022",
+      "doi": "10.1210/endocr/bqac128",
+      "title": "Sex specific effects of endocrine-disrupting chemicals on brain monoamines and cognitive function",
       "authors": [
-        "Bendis, A.",
-        "et al."
+        "Hilz, E.N.",
+        "Gore, A.C."
       ],
-      "year": 2024,
-      "citations": 5,
+      "year": 2022,
+      "citations": 31,
       "added_by": "yuxi",
       "added_date": "2026-04-07",
       "tags": [
-        "estradiol",
         "sex-differences",
+        "monoamine",
         "recent"
       ],
       "category": "Recent Advances (2022-2026)",
       "key_claims": [
-        "Estradiol significantly modulates all three monoamine systems; sex differences are understudied"
+        "Endocrine-disrupting chemicals have sex-specific effects on monoamine systems and cognition"
       ],
       "notes": ""
     },

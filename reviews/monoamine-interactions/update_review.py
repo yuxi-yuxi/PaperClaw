@@ -123,6 +123,91 @@ def format_paper_for_review(paper, added_by="auto"):
     }
 
 
+def verify_doi(doi, expected_title):
+    """Verify a DOI resolves to the expected paper."""
+    headers = {"x-api-key": SEMANTIC_SCHOLAR_API_KEY} if SEMANTIC_SCHOLAR_API_KEY else {}
+
+    try:
+        response = requests.get(
+            f"{S2_API_BASE}/paper/DOI:{doi}",
+            headers=headers,
+            params={"fields": "title,authors,year"},
+            timeout=10
+        )
+        if response.status_code == 200:
+            data = response.json()
+            actual_title = data.get("title", "")
+            # Check if first 20 chars of expected title match (case insensitive)
+            expected_prefix = expected_title.lower()[:20]
+            actual_lower = actual_title.lower()
+            if expected_prefix in actual_lower:
+                return True, actual_title, None
+            else:
+                return False, actual_title, "Title mismatch"
+        elif response.status_code == 404:
+            return False, None, "DOI not found"
+        else:
+            return False, None, f"API error: {response.status_code}"
+    except Exception as e:
+        return False, None, str(e)
+
+
+def verify_all_dois(review_data):
+    """Verify all DOIs in the review."""
+    print("=" * 60)
+    print("DOI Verification")
+    print("=" * 60)
+
+    papers = review_data.get("papers", [])
+    errors = []
+    verified = 0
+
+    for i, paper in enumerate(papers):
+        doi = paper.get("doi", "")
+        title = paper.get("title", "")
+        paper_id = paper.get("id", f"paper_{i}")
+
+        if not doi:
+            print(f"  SKIP: {paper_id} - No DOI")
+            continue
+
+        is_valid, actual_title, error = verify_doi(doi, title)
+
+        if is_valid:
+            print(f"  OK: {paper_id}")
+            verified += 1
+        else:
+            print(f"  ERROR: {paper_id}")
+            print(f"       DOI: {doi}")
+            print(f"       Expected: {title[:50]}...")
+            if actual_title:
+                print(f"       Got: {actual_title[:50]}...")
+            if error:
+                print(f"       Reason: {error}")
+            errors.append({
+                "id": paper_id,
+                "doi": doi,
+                "expected_title": title,
+                "actual_title": actual_title,
+                "error": error
+            })
+
+        # Rate limiting
+        import time
+        time.sleep(0.5)
+
+    print(f"\n{'=' * 60}")
+    print(f"Verified: {verified}/{len(papers)}")
+    print(f"Errors: {len(errors)}")
+
+    if errors:
+        print("\nPapers with DOI issues:")
+        for e in errors:
+            print(f"  - {e['id']}: {e['error']}")
+
+    return errors
+
+
 def update_review(dry_run=False, since_date=None, min_citations=5):
     """Main update function."""
     print("=" * 60)
@@ -213,9 +298,14 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Show what would be added without making changes")
     parser.add_argument("--since", type=str, help="Search for papers since this date (YYYY-MM-DD)")
     parser.add_argument("--min-citations", type=int, default=5, help="Minimum citations for inclusion (default: 5)")
+    parser.add_argument("--verify", action="store_true", help="Verify all DOIs in the review are correct")
     args = parser.parse_args()
 
-    update_review(dry_run=args.dry_run, since_date=args.since, min_citations=args.min_citations)
+    if args.verify:
+        review = load_review()
+        verify_all_dois(review)
+    else:
+        update_review(dry_run=args.dry_run, since_date=args.since, min_citations=args.min_citations)
 
 
 if __name__ == "__main__":

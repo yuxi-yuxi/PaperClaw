@@ -28,8 +28,25 @@ PaperClaw is used for conducting comprehensive literature reviews using Semantic
 | User Request | Action Taken |
 |--------------|--------------|
 | "The DOI link for Wang et al., 2019 is not correct" | Verified correct DOI via Semantic Scholar API and updated all 7 instances |
+| "DOI link is not corresponding to the paper" | Ran DOI verification script, found 4 mismatches (peters2021, dedeurwaerdere2021, azizi2020, bailey2018), corrected all |
 
 **Standard:** Always verify DOIs are correct and functional. Use Semantic Scholar API to confirm paper metadata before adding citations. Test DOI links resolve to the correct paper.
+
+**DOI Verification Workflow:**
+1. Before adding a paper, verify the DOI resolves to the correct paper via Semantic Scholar API:
+   ```
+   GET https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}?fields=title,authors,year
+   ```
+2. Compare the returned title with the expected title (first 20 characters, case-insensitive)
+3. For living reviews, run periodic verification:
+   ```bash
+   python reviews/monoamine-interactions/update_review.py --verify
+   ```
+4. Common DOI issues to watch for:
+   - DOI copied from wrong paper in search results
+   - DOI changed during journal transfer
+   - Preprint DOI vs published DOI mismatch
+   - Character encoding issues in DOI strings
 
 ### 4. Shareable Format
 | User Request | Action Taken |
