@@ -61,6 +61,9 @@ python reviews/monoamine-interactions/update_review.py
 
 # Regenerate HTML
 python reviews/monoamine-interactions/generate_report.py
+
+# Verify all DOIs are correct
+python reviews/monoamine-interactions/update_review.py --verify
 ```
 
 ---
